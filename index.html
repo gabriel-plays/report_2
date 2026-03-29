@@ -10,10 +10,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#111827;--muted:#6B7280;--border:#E5E7EB;--bg:#F9FAFB;--danger:#DC2626;--warn:#D97706;--ok:#059669}
-html{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:#fff;scroll-behavior:smooth}
+html{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:#fff;scroll-behavior:smooth}h
 nav{display:flex;align-items:center;padding:0 2rem;height:60px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:50}
 .brand{font-size:.95rem;font-weight:700;letter-spacing:-.02em}.brand em{color:var(--danger);font-style:normal}
-.nav-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}h
 .pill-nav{font-size:.72rem;font-family:'IBM Plex Mono',monospace;background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:.2rem .7rem;color:var(--muted)}
 .hero{max-width:720px;margin:0 auto;padding:5rem 2rem 3.5rem;text-align:center}
 .hero h1{font-family:'Libre Baskerville',serif;font-size:2.6rem;font-weight:700;line-height:1.15;letter-spacing:-.03em;margin-bottom:1rem}
@@ -290,7 +290,7 @@ async function loadStations(){
   try{
     const r=await fetch('data/stations.json');
     const d=await r.json();
-    STATIONS=d.stations;
+    STATIONS=Array.isArray(d)?d:d.stations;
     document.getElementById('station-count').textContent=fmt(STATIONS.length)+' stations';
     buildBrowse();
   }catch(e){

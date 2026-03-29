@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crime Intelligence Report — SafeZone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --ink:#111;--muted:#666;--faint:#999;
+  --danger:#DC2626;--warn:#D97706;--ok:#059669;--blue:#2563EB;
+  --border:#E5E7EB;--divider:#F3F4F6;
+  --bg:#FFFFFF;--bg2:#F9FAFB;
+  --mono:'IBM Plex Mono',monospace;
+  --serif:'Libre Baskerville',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;font-size:13px;color:var(--ink);background:#EBEBEB;line-height:1.5}
+
+/* ── Page wrapper ─────────────────────────────────────────────────────────── */
+.page{background:var(--bg);max-width:820px;margin:0 auto;padding:0;box-shadow:0 0 40px rgba(0,0,0,.12)}
+@media(min-width:860px){.page{margin:24px auto 48px}}
+
+/* ── Print bar (screen only) ──────────────────────────────────────────────── */
+.print-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 28px;background:var(--bg2);border-bottom:1px solid var(--border);font-size:11px;color:var(--muted)}
+.print-bar span{font-family:var(--mono)}
+.btn-print{padding:5px 14px;background:var(--ink);color:#fff;border:none;border-radius:4px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.02em}
+.btn-print:hover{background:#333}
+@media print{.print-bar{display:none}}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.hd{padding:28px 32px 24px;border-bottom:2px solid var(--ink)}
+.hd-label{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:var(--mono);margin-bottom:6px}
+.hd-station{font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.hd-station em{font-style:normal;font-weight:400;color:var(--muted)}
+.hd-meta{margin-top:6px;font-size:11px;color:var(--muted);font-family:var(--mono)}
+.hd-meta span{margin-right:16px}
+
+/* ── Risk banner ──────────────────────────────────────────────────────────── */
+.risk-banner{padding:18px 32px;display:flex;align-items:center;gap:20px;border-bottom:1px solid var(--border)}
+.rb-bar-wrap{flex:1;height:8px;background:var(--divider);border-radius:4px;overflow:hidden}
+.rb-bar-fill{height:100%;border-radius:4px}
+.rb-bar-fill.critical{background:var(--danger)}
+.rb-bar-fill.high{background:#EF4444}
+.rb-bar-fill.elevated{background:var(--warn)}
+.rb-bar-fill.moderate{background:#F59E0B}
+.rb-bar-fill.low{background:var(--ok)}
+.rb-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--mono);white-space:nowrap}
+.rb-label.critical{color:var(--danger)}
+.rb-label.high{color:#EF4444}
+.rb-label.elevated{color:var(--warn)}
+.rb-label.moderate{color:#F59E0B}
+.rb-label.low{color:var(--ok)}
+.rb-context{font-size:11px;color:var(--muted);white-space:nowrap;font-family:var(--mono)}
+
+/* ── Section wrapper ──────────────────────────────────────────────────────── */
+.sec{padding:22px 32px;border-bottom:1px solid var(--border)}
+.sec-title{font-size:9px;letter-spacing:.10em;text-transform:uppercase;font-family:var(--mono);color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── Briefing ─────────────────────────────────────────────────────────────── */
+.briefing{font-family:var(--serif);font-size:13.5px;line-height:1.85;color:#222;max-width:680px}
+.briefing strong{font-weight:700;color:var(--ink)}
+
+/* ── Metrics grid ─────────────────────────────────────────────────────────── */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:18px}
+.metric{background:var(--bg);padding:12px 14px}
+.metric-val{font-family:var(--mono);font-size:18px;font-weight:500;line-height:1}
+.metric-val.danger{color:var(--danger)}
+.metric-val.warn{color:var(--warn)}
+.metric-val.ok{color:var(--ok)}
+.metric-lbl{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.3}
+.metric-sub{font-size:10px;font-family:var(--mono);color:var(--faint);margin-top:2px}
+
+/* ── Two-column layout ────────────────────────────────────────────────────── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.chart-label{font-size:10px;color:var(--muted);margin-bottom:8px;font-family:var(--mono)}
+
+/* ── Category table ───────────────────────────────────────────────────────── */
+.cat-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.cat-table th{padding:6px 8px;text-align:left;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);background:var(--bg2)}
+.cat-table th.r{text-align:right}
+.cat-table td{padding:7px 8px;border-bottom:1px solid var(--divider);vertical-align:middle}
+.cat-table td.r{text-align:right;font-family:var(--mono)}
+.cat-table tr:last-child td{border-bottom:none}
+.cat-table tr:hover td{background:var(--bg2)}
+.cat-name{font-weight:500}
+.mult-pill{display:inline-block;padding:1px 6px;border-radius:3px;font-family:var(--mono);font-size:10px;font-weight:500}
+.mult-pill.high{background:#FEE2E2;color:#B91C1C}
+.mult-pill.med{background:#FEF3C7;color:#92400E}
+.mult-pill.low{background:#D1FAE5;color:#065F46}
+.mult-pill.norm{background:var(--divider);color:var(--muted)}
+.yoy-badge{font-family:var(--mono);font-size:10px;font-weight:500}
+.yoy-badge.up{color:var(--danger)}
+.yoy-badge.dn{color:var(--ok)}
+.yoy-badge.fl{color:var(--faint)}
+.rank-chip{font-family:var(--mono);font-size:10px;color:var(--muted)}
+
+/* ── Benchmark bars ───────────────────────────────────────────────────────── */
+.bench-item{margin-bottom:14px}
+.bench-label{font-size:11.5px;font-weight:500;margin-bottom:5px;display:flex;justify-content:space-between;align-items:baseline}
+.bench-label span{font-family:var(--mono);font-size:10px;color:var(--faint)}
+.bench-tracks{display:flex;flex-direction:column;gap:4px}
+.bench-row{display:flex;align-items:center;gap:8px;width:100%}
+.bench-name{width:80px;flex-shrink:0;font-size:10px;color:var(--muted)}
+.bench-bar-wrap{flex:1;height:7px;background:var(--divider);border-radius:3px;overflow:hidden}
+.bench-bar{height:100%;border-radius:3px}
+.bench-bar.station{background:var(--danger)}
+.bench-bar.province{background:var(--warn);opacity:.8}
+.bench-bar.national{background:#CBD5E1}
+.bench-val{width:50px;text-align:right;font-family:var(--mono);font-size:10px;flex-shrink:0;color:var(--muted)}
+
+/* ── Assessment ───────────────────────────────────────────────────────────── */
+.profile-tag{display:inline-block;padding:3px 10px;border-radius:3px;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-family:var(--mono);margin-bottom:12px}
+.profile-tag.critical{background:#FEE2E2;color:#B91C1C}
+.profile-tag.high{background:#FECACA;color:#991B1B}
+.profile-tag.elevated{background:#FEF3C7;color:#92400E}
+.profile-tag.moderate{background:#FEF9C3;color:#854D0E}
+.profile-tag.low{background:#D1FAE5;color:#065F46}
+.assessment-body{font-size:13px;line-height:1.75;color:#333;margin-bottom:16px;max-width:660px}
+.recs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.rec{padding:12px 14px;border:1px solid var(--border);border-radius:4px;border-left:3px solid var(--border)}
+.rec.red{border-left-color:var(--danger)}
+.rec.amber{border-left-color:var(--warn)}
+.rec.blue{border-left-color:var(--blue)}
+.rec.green{border-left-color:var(--ok)}
+.rec-title{font-weight:600;font-size:11.5px;margin-bottom:4px}
+.rec-body{font-size:11px;color:var(--muted);line-height:1.55}
+
+/* ── Trend legend ─────────────────────────────────────────────────────────── */
+.trend-legend{display:flex;gap:16px;margin-bottom:8px}
+.tl-item{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)}
+.tl-line{width:16px;height:2px;border-radius:1px}
+
+/* ── Disclaimer ───────────────────────────────────────────────────────────── */
+.disclaimer{padding:18px 32px;font-size:10px;color:var(--faint);line-height:1.65;border-top:2px solid var(--border)}
+.disclaimer strong{color:var(--muted)}
+
+/* ── Loading ──────────────────────────────────────────────────────────────── */
+.loading{padding:60px 32px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px}
+
+/* ── Print ────────────────────────────────────────────────────────────────── */
+@media print{
+  body{background:#fff}
+  .page{box-shadow:none;max-width:100%;margin:0}
+  .sec{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="page" id="page">
+  <div class="loading" id="loading">Loading intelligence data…</div>
+</div>
+
+<script>
+// ── Utilities ────────────────────────────────────────────────────────────────
+const fmt  = n => n == null ? '—' : Number(n).toLocaleString();
+const fmtD = (n, dp=1) => n == null ? '—' : Number(n).toFixed(dp);
+
+function fmtYoy(y) {
+  if (y == null) return '<span class="yoy-badge fl">—</span>';
+  const p = Math.abs(Math.round(y * 100));
+  if (y >  0.03) return `<span class="yoy-badge up">▲ ${p}%</span>`;
+  if (y < -0.03) return `<span class="yoy-badge dn">▼ ${p}%</span>`;
+  return `<span class="yoy-badge fl">→ ${p < 1 ? '<1' : p}%</span>`;
+}
+
+function riskClass(score) {
+  if (score >= 85) return 'critical';
+  if (score >= 65) return 'high';
+  if (score >= 40) return 'elevated';
+  if (score >= 20) return 'moderate';
+  return 'low';
+}
+
+function multClass(m) {
+  if (m == null || isNaN(m)) return 'norm';
+  if (m >= 2.5)  return 'high';
+  if (m >= 1.15) return 'med';
+  if (m < 0.7)   return 'low';
+  return 'norm';
+}
+
+function multLabel(m) {
+  if (m == null || isNaN(m)) return '—';
+  return `${fmtD(m)}× avg`;
+}
+
+const SHORT_NAME = n => n
+  .replace('Robbery With Aggravating Circumstances', 'Rob. w/ Aggravating Circ.')
+  .replace('Burglary at Residential Premises',       'Res. Burglary')
+  .replace('Burglary at Non-Residential Premises',   'Bus. Burglary')
+  .replace('Theft of Motor Vehicle and Motorcycle',  'Vehicle Theft')
+  .replace('Theft Out of or From Motor Vehicle',     'Theft from Vehicle')
+  .replace('Drug-Related Crime',                     'Drug-Related')
+  .replace('Attempted Murder',                       'Att. Murder')
+  .replace('Common Assault',                         'Common Assault');
+
+// ── Narrative engine ─────────────────────────────────────────────────────────
+function generateBriefing(s) {
+  const totalMult = s.nat_avg > 0 ? (s.total / s.nat_avg) : 1;
+
+  // Top categories by multiplier
+  const ranked = [...s.categories]
+    .filter(c => c.count > 0 && c.multiplier != null)
+    .sort((a, b) => b.multiplier - a.multiplier);
+  const top    = ranked[0];
+  const second = ranked[1];
+
+  // Trend character
+  const t5  = s.trend_5yr_pct;
+  const yoy = s.total_yoy;
+  const trendDir = t5 == null   ? 'stable'
+                 : t5 >  0.10   ? 'rising'
+                 : t5 < -0.10   ? 'declining'
+                 : 'broadly stable';
+
+  // Peak note
+  const lastTrendYr = s.trend_years[s.trend_years.length - 1];
+  const peakNote = s.peak_year !== lastTrendYr && s.peak_total > s.total
+    ? ` Crime volumes peaked in ${s.peak_year} at ${fmt(s.peak_total)} and have ${yoy < 0 ? 'moderated' : 'remained elevated'} since.`
+    : '';
+
+  let brief = '';
+
+  // S1: Position
+  brief += `${s.name} SAPS recorded <strong>${fmt(s.total)}</strong> serious crimes in ${s.primary_year}, `;
+  if (s.nat_rank <= 10) {
+    brief += `placing it among the <strong>top 10 most active stations</strong> in South Africa`;
+  } else if (s.nat_rank <= 50) {
+    brief += `ranking <strong>#${s.nat_rank} of ${s.nat_total}</strong> stations nationally — in the top 5%`;
+  } else {
+    brief += `ranking <strong>#${s.nat_rank} of ${s.nat_total}</strong> stations nationally`;
+  }
+  if (s.prov_rank != null && s.prov_rank <= 5) {
+    brief += ` and <strong>#${s.prov_rank} of ${s.prov_total}</strong> in ${s.province}`;
+  }
+  brief += `. Volumes are <strong>${fmtD(totalMult)}× the national station average</strong> of ${fmt(s.nat_avg)}.`;
+
+  // S2: Crime drivers
+  if (top && top.multiplier >= 1.5) {
+    brief += ` ${top.name} is the defining risk factor at <strong>${fmt(top.count)} cases</strong> — `;
+    brief += `${fmtD(top.multiplier)}× the national average of ${fmtD(top.nat_avg, 0)}`;
+    if (second && second.multiplier >= 1.3) {
+      brief += `, with ${second.name.toLowerCase()} also significantly elevated (${fmt(second.count)} cases, ${fmtD(second.multiplier)}× average)`;
+    }
+    brief += '.';
+  } else {
+    brief += ` No single crime category shows extreme departure from national norms, presenting a broadly proportional crime mix.`;
+  }
+
+  // S3: Trend
+  if (trendDir === 'rising') {
+    brief += ` The 5-year trend is <strong>upward (+${Math.abs(Math.round(t5*100))}%</strong> since 2019/20)`;
+  } else if (trendDir === 'declining') {
+    brief += ` The 5-year trend is <strong>improving (−${Math.abs(Math.round(t5*100))}%</strong> since 2019/20)`;
+  } else {
+    brief += ` Crime volumes have been <strong>broadly stable</strong> across the 5-year trend period`;
+  }
+  brief += peakNote;
+
+  // S4: YoY
+  if (yoy != null) {
+    const p = Math.abs(Math.round(yoy * 100));
+    if (yoy > 0.05)       brief += `, with a ${p}% increase in the most recent year.`;
+    else if (yoy < -0.05) brief += `, with a ${p}% reduction in the most recent year — a positive signal.`;
+    else                  brief += `, broadly unchanged year-on-year.`;
+  } else {
+    brief += '.';
+  }
+
+  return brief;
+}
+
+function generateAssessment(s) {
+  const rc = riskClass(s.risk_score);
+  const get = name => s.categories.find(c => c.name === name) || {count:0, multiplier:0};
+
+  const murder  = get('Murder');
+  const robbery = get('Robbery With Aggravating Circumstances');
+  const burgR   = get('Burglary at Residential Premises');
+  const burgB   = get('Burglary at Non-Residential Premises');
+  const carjack = get('Carjacking');
+  const drug    = get('Drug-Related Crime');
+  const assault = get('Assault GBH');
+
+  const total     = s.total || 1;
+  const robTotal  = (robbery.count||0) + (carjack.count||0);
+  const burgTotal = (burgR.count||0) + (burgB.count||0);
+
+  let profile, body;
+
+  if (rc === 'critical' || rc === 'high') {
+    if ((murder.multiplier||0) > 3 && (robbery.multiplier||0) > 2) {
+      profile = 'High-intensity violent crime area';
+      body = `${s.name} presents an acute violent crime environment where both murder and armed robbery run significantly above national norms. This type of station is typically associated with urban density, acute socioeconomic pressure, and under-resourced formal security infrastructure. Physical security, rapid armed response capability, and heightened personal situational awareness are all critical considerations for residents and businesses in this precinct.`;
+    } else if ((robbery.multiplier||0) > 3 || (carjack.multiplier||0) > 2.5) {
+      profile = 'High-volume robbery corridor';
+      body = `${s.name} is characterised by a high volume of armed robbery and vehicle-related crime — a pattern common to commercial nodes, transit corridors, and areas with significant cash flow activity. The crime environment reflects a concentration of opportunity-driven criminal targeting. Security protocols for businesses, vehicles, and pedestrians require heightened and proactive attention.`;
+    } else if ((burgR.multiplier||0) > 2.5 || (burgB.multiplier||0) > 2.5) {
+      profile = 'Elevated burglary area';
+      body = `${s.name} shows significantly above-average burglary rates. The crime environment indicates active property crime, with risk concentrated around access control and structural vulnerabilities. Residential and commercial premises with inadequate perimeter security and alarm coverage face meaningful exposure.`;
+    } else {
+      profile = 'High-risk mixed-crime area';
+      body = `${s.name} presents elevated risk across multiple crime categories simultaneously, without a single dominant type. This multi-vector profile is typical of complex urban environments where violent crime, property crime, and robbery occur concurrently. A layered security approach addressing multiple risk dimensions is warranted.`;
+    }
+  } else if (rc === 'elevated') {
+    if (robTotal / total > 0.12) {
+      profile = 'Above-average robbery risk area';
+      body = `${s.name} shows above-average robbery activity, though volumes remain within manageable ranges. The station's profile suggests some concentration of criminal activity in commercial or transit zones. Standard security measures supplemented by heightened vehicle and pedestrian awareness are appropriate.`;
+    } else if (burgTotal / total > 0.20) {
+      profile = 'Above-average property crime area';
+      body = `${s.name} presents a property crime profile that exceeds typical benchmarks, particularly in residential and commercial burglary. Structural security improvements and neighbourhood watch engagement provide meaningful risk reduction at this level.`;
+    } else {
+      profile = 'Elevated risk — mixed profile';
+      body = `${s.name} sits above the national median across several crime categories. No single category dominates, but the cumulative profile warrants a deliberate approach to personal and property security that goes beyond standard residential baseline measures.`;
+    }
+  } else if (rc === 'moderate') {
+    profile = 'Near-average crime area';
+    body = `${s.name} records crime volumes broadly in line with national station norms. This reflects a relatively stable environment. Standard residential and commercial security measures are appropriate for this level of risk, with periodic reassessment recommended as conditions can change.`;
+  } else {
+    profile = 'Low crime area — below national average';
+    body = `${s.name} is among the lower-crime stations in South Africa, with serious crime volumes well below the national average. Routine security practices are generally sufficient. Awareness of local trends should still be maintained, as individual incidents can occur in any area.`;
+  }
+
+  return { profile, body };
+}
+
+function generateRecs(s) {
+  const rc  = riskClass(s.risk_score);
+  const get = name => s.categories.find(c => c.name === name) || {count:0, multiplier:0};
+
+  const murder  = get('Murder');
+  const robbery = get('Robbery With Aggravating Circumstances');
+  const burgR   = get('Burglary at Residential Premises');
+  const carjack = get('Carjacking');
+  const drug    = get('Drug-Related Crime');
+  const vehicle = get('Theft of Motor Vehicle and Motorcycle');
+
+  const recs = [];
+
+  if ((murder.multiplier||0) >= 2 || rc === 'critical') {
+    recs.push({color:'red', title:'Armed response & access control',
+      body:`Violent crime is significantly above the national baseline. Armed response subscription, electronic access control at all entry points, and a visitor management protocol are strongly recommended.`});
+  }
+
+  if ((robbery.multiplier||0) >= 1.5 || (carjack.multiplier||0) >= 1.5) {
+    recs.push({color:'red', title:'Vehicle & transit security',
+      body:`Elevated robbery and carjacking indicate active targeting of vehicles and pedestrians. Use secure, well-lit parking, maintain situational awareness at intersections, and equip vehicles with tracking and armed response.`});
+  }
+
+  if ((burgR.multiplier||0) >= 1.3 || rc === 'critical' || rc === 'high') {
+    recs.push({color:'amber', title:'Perimeter & premises hardening',
+      body:`Residential burglary is above the provincial benchmark. Perimeter security (walls, electric fencing), burglar bars, security gates, and 24-hour alarm monitoring materially reduce opportunistic burglary exposure.`});
+  }
+
+  if ((drug.multiplier||0) >= 2) {
+    recs.push({color:'amber', title:'Community safety engagement',
+      body:`Elevated drug-related crime is a secondary driver of opportunistic property crime. Community Policing Forum involvement, improved public lighting, and visible security patrols are effective complementary measures.`});
+  }
+
+  if ((vehicle.multiplier||0) >= 1.5) {
+    recs.push({color:'amber', title:'Vehicle protection',
+      body:`Vehicle theft is above the national average for this precinct. Secure off-street parking, immobilisers, gear locks, and GPS tracking significantly reduce exposure.`});
+  }
+
+  if (rc === 'low' || rc === 'moderate') {
+    recs.push({color:'green', title:'Maintain standard security baseline',
+      body:`Crime volumes are at or below national norms. A standard residential baseline — alarm system, perimeter security, neighbourhood watch — is appropriate. Annual review is recommended.`});
+  }
+
+  while (recs.length < 3) {
+    recs.push({color:'blue', title:'Monitor SAPS quarterly statistics',
+      body:`Review SAPS quarterly crime statistics for this precinct to track emerging patterns. Early identification of trend shifts allows proactive security adjustments before risk escalates.`});
+  }
+
+  if (recs.length < 4) {
+    recs.push({color:'blue', title:'SAPS Community Policing Forum',
+      body:`Engagement with the local CPF provides early awareness of policing priorities and safety initiatives in the area. CPF meetings are open to all residents and businesses.`});
+  }
+
+  return recs.slice(0, 4);
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function buildReport(station, address) {
+  const rc        = riskClass(station.risk_score);
+  const page      = document.getElementById('page');
+  const sortedCats = [...station.categories].sort((a, b) => b.count - a.count);
+  const topCats   = sortedCats.slice(0, 8);
+
+  const briefing = generateBriefing(station);
+  const {profile, body: assessBody} = generateAssessment(station);
+  const recs = generateRecs(station);
+
+  const now = new Date().toLocaleDateString('en-ZA',
+    {day:'2-digit', month:'long', year:'numeric'});
+
+  const yoyVal = station.total_yoy;
+  const yoyStr = yoyVal == null ? '—'
+    : (yoyVal > 0 ? '▲ ' : '▼ ') + Math.abs(Math.round(yoyVal * 100)) + '%';
+  const yoyClass = yoyVal > 0.03 ? 'danger' : yoyVal < -0.03 ? 'ok' : '';
+
+  const t5 = station.trend_5yr_pct;
+  const t5Str = t5 == null ? '—'
+    : (t5 > 0 ? '+' : '') + Math.round(t5 * 100) + '%';
+  const t5Class = t5 > 0.05 ? 'danger' : t5 < -0.05 ? 'ok' : '';
+
+  page.innerHTML = `
+  <div class="print-bar">
+    <span>SafeZone Intelligence · SAPS ${station.primary_year} · saps_crimes.db</span>
+    <button class="btn-print" onclick="window.print()">Save as PDF</button>
+  </div>
+
+  <div class="hd">
+    <div class="hd-label">Property Crime Intelligence Report</div>
+    <div class="hd-station">${station.name} SAPS <em>— ${station.district}</em></div>
+    <div class="hd-meta">
+      <span>${station.province}</span>
+      <span>Data period: ${station.primary_year} Annual</span>
+      <span>Generated: ${now}</span>
+      ${address ? `<span>Search: ${address}</span>` : ''}
+    </div>
+  </div>
+
+  <div class="risk-banner">
+    <div class="rb-bar-wrap">
+      <div class="rb-bar-fill ${rc}" style="width:${station.risk_score}%"></div>
+    </div>
+    <div class="rb-label ${rc}">${station.risk_label}</div>
+    <div class="rb-context">
+      ${station.risk_score}th percentile &nbsp;·&nbsp;
+      #${station.nat_rank} of ${station.nat_total} nationally &nbsp;·&nbsp;
+      #${station.prov_rank} of ${station.prov_total} in ${station.province}
+    </div>
+  </div>
+
+  <!-- Executive Briefing -->
+  <div class="sec">
+    <div class="sec-title">Executive Briefing</div>
+    <p class="briefing">${briefing}</p>
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-val">${fmt(station.total)}</div>
+        <div class="metric-lbl">Serious crimes ${station.primary_year}</div>
+        <div class="metric-sub">17 CRSC indicator</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">#${station.nat_rank}<span style="font-size:11px;color:var(--muted)"> / ${station.nat_total}</span></div>
+        <div class="metric-lbl">National rank</div>
+        <div class="metric-sub">Nat. avg ${fmt(station.nat_avg)}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">#${station.prov_rank}<span style="font-size:11px;color:var(--muted)"> / ${station.prov_total}</span></div>
+        <div class="metric-lbl">Rank in ${station.province}</div>
+        <div class="metric-sub">Prov. avg ${fmt(station.prov_avg)}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val ${yoyClass}">${yoyStr}</div>
+        <div class="metric-lbl">Year-on-year change</div>
+        <div class="metric-sub">${station.trend_years.at(-2)} → ${station.primary_year}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Current State -->
+  <div class="sec">
+    <div class="sec-title">Current State — ${station.primary_year}</div>
+    <div class="two-col">
+      <div>
+        <div class="chart-label">Category volumes — station vs national average</div>
+        <canvas id="c-breakdown" height="200"></canvas>
+      </div>
+      <div>
+        <div class="chart-label">Crime composition by category</div>
+        <canvas id="c-donut" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5-Year Trend -->
+  <div class="sec">
+    <div class="sec-title">5-Year Trend — Total Serious Crime (17 CRSC)</div>
+    <div class="trend-legend">
+      <div class="tl-item"><div class="tl-line" style="background:var(--danger)"></div>${station.name}</div>
+      <div class="tl-item"><div class="tl-line" style="background:var(--warn);opacity:.8"></div>${station.province} average</div>
+      <div class="tl-item"><div class="tl-line" style="background:#CBD5E1"></div>National average</div>
+    </div>
+    <canvas id="c-trend" height="130"></canvas>
+    <div class="metrics-grid" style="margin-top:14px">
+      <div class="metric">
+        <div class="metric-val">${fmt(station.trend[0])}</div>
+        <div class="metric-lbl">2019/20 baseline</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">${fmt(station.peak_total)}</div>
+        <div class="metric-lbl">Peak year (${station.peak_year})</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val ${t5Class}">${t5Str}</div>
+        <div class="metric-lbl">5-year change</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">${fmt(station.trend.at(-1))}</div>
+        <div class="metric-lbl">${station.primary_year} current</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Intelligence -->
+  <div class="sec">
+    <div class="sec-title">Category Intelligence — ${station.primary_year}</div>
+    <table class="cat-table">
+      <thead>
+        <tr>
+          <th>Crime Category</th>
+          <th class="r">Count</th>
+          <th class="r">Nat. Rank</th>
+          <th>vs National Avg</th>
+          <th>vs Province Avg</th>
+          <th class="r">YoY</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${sortedCats.map(c => {
+          const pMult = c.prov_avg > 0 ? c.count / c.prov_avg : null;
+          return `<tr>
+            <td class="cat-name">${c.name}</td>
+            <td class="r">${fmt(c.count)}</td>
+            <td class="r"><span class="rank-chip">#${c.nat_rank ?? '—'}</span></td>
+            <td><span class="mult-pill ${multClass(c.multiplier)}">${multLabel(c.multiplier)}</span></td>
+            <td><span class="mult-pill ${multClass(pMult)}">${pMult != null ? fmtD(pMult) + '× avg' : '—'}</span></td>
+            <td class="r">${fmtYoy(c.yoy)}</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Comparative Benchmarks -->
+  <div class="sec">
+    <div class="sec-title">Comparative Benchmarks — Top Categories by Volume</div>
+    <div style="display:flex;gap:16px;margin-bottom:14px">
+      <div class="tl-item"><div style="width:14px;height:8px;background:var(--danger);border-radius:2px"></div><span style="font-size:10px;color:var(--muted)">This station</span></div>
+      <div class="tl-item"><div style="width:14px;height:8px;background:var(--warn);opacity:.8;border-radius:2px"></div><span style="font-size:10px;color:var(--muted)">${station.province} average</span></div>
+      <div class="tl-item"><div style="width:14px;height:8px;background:#CBD5E1;border-radius:2px"></div><span style="font-size:10px;color:var(--muted)">National average</span></div>
+    </div>
+    ${topCats.slice(0, 6).map(c => {
+      const maxV = Math.max(c.count, c.prov_avg || 0, c.nat_avg || 0, 1);
+      const sPct = Math.round(c.count / maxV * 100);
+      const pPct = Math.round((c.prov_avg || 0) / maxV * 100);
+      const nPct = Math.round((c.nat_avg || 0) / maxV * 100);
+      return `<div class="bench-item">
+        <div class="bench-label">${c.name} <span>${fmt(c.count)} / prov avg ${fmtD(c.prov_avg||0)} / nat avg ${fmtD(c.nat_avg||0)}</span></div>
+        <div class="bench-tracks">
+          <div class="bench-row"><div class="bench-name">This station</div><div class="bench-bar-wrap"><div class="bench-bar station" style="width:${sPct}%"></div></div><div class="bench-val">${fmt(c.count)}</div></div>
+          <div class="bench-row"><div class="bench-name">${station.province.split(' ')[0]}&nbsp;avg</div><div class="bench-bar-wrap"><div class="bench-bar province" style="width:${pPct}%"></div></div><div class="bench-val">${fmtD(c.prov_avg||0)}</div></div>
+          <div class="bench-row"><div class="bench-name">National avg</div><div class="bench-bar-wrap"><div class="bench-bar national" style="width:${nPct}%"></div></div><div class="bench-val">${fmtD(c.nat_avg||0)}</div></div>
+        </div>
+      </div>`;
+    }).join('')}
+  </div>
+
+  <!-- Assessment -->
+  <div class="sec">
+    <div class="sec-title">Risk Assessment</div>
+    <span class="profile-tag ${rc}">${profile}</span>
+    <p class="assessment-body">${assessBody}</p>
+    <div class="sec-title" style="margin-top:20px">Recommendations</div>
+    <div class="recs">
+      ${recs.map(r => `
+        <div class="rec ${r.color}">
+          <div class="rec-title">${r.title}</div>
+          <div class="rec-body">${r.body}</div>
+        </div>`).join('')}
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <strong>Data source:</strong>
+    SAPS Annual Crime Statistics — official published data compiled into saps_crimes.db from 7 source files covering ${station.trend_years[0]}–${station.primary_year}.
+    Risk percentile is a composite index: murder ×5 + robbery with aggravating circumstances ×2 + residential burglary + business burglary, ranked across all ${station.nat_total} stations in the dataset.
+    National and provincial averages are per-station averages (not population-weighted).
+    <strong>This report is for informational purposes only and does not constitute security, legal, or investment advice.</strong>
+  </div>`;
+
+  // ── Charts ─────────────────────────────────────────────────────────────────
+  const RED  = '#DC2626', AMBER = '#D97706', GRAY = '#CBD5E1';
+  const INK  = '#111',    MUTED = '#888';
+
+  // Breakdown: top 8 categories — station vs national avg
+  new Chart(document.getElementById('c-breakdown'), {
+    type: 'bar',
+    data: {
+      labels:   topCats.map(c => SHORT_NAME(c.name)),
+      datasets: [
+        {label:'This station', data:topCats.map(c=>c.count),          backgroundColor:RED,  borderRadius:2},
+        {label:'National avg', data:topCats.map(c=>c.nat_avg||0),     backgroundColor:GRAY, borderRadius:2},
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:true,
+      plugins:{legend:{display:true, labels:{font:{size:9},boxWidth:10,color:MUTED}}},
+      scales:{
+        x:{grid:{display:false}, ticks:{font:{size:8},color:MUTED}},
+        y:{grid:{color:'rgba(0,0,0,.05)'}, ticks:{font:{size:8},color:MUTED}},
+      }
+    }
+  });
+
+  // Donut: top 6 crime categories
+  const donut6 = sortedCats.slice(0, 6);
+  new Chart(document.getElementById('c-donut'), {
+    type: 'doughnut',
+    data: {
+      labels:   donut6.map(c => c.name.length > 22 ? c.name.slice(0,20)+'…' : c.name),
+      datasets: [{
+        data:           donut6.map(c => c.count),
+        backgroundColor:[RED,'#EF4444',AMBER,'#F59E0B','#2563EB',GRAY],
+        borderWidth:    0,
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:true, cutout:'58%',
+      plugins:{legend:{display:true, position:'bottom', labels:{font:{size:8},boxWidth:10,padding:6,color:MUTED}}},
+    }
+  });
+
+  // Trend: station vs province vs national
+  new Chart(document.getElementById('c-trend'), {
+    type: 'line',
+    data: {
+      labels: station.trend_years,
+      datasets: [
+        {label:station.name,              data:station.trend,       borderColor:RED,   backgroundColor:'rgba(220,38,38,.06)', borderWidth:2.5, tension:.3, pointRadius:3, fill:true},
+        {label:`${station.province} avg`, data:station.prov_trend,  borderColor:AMBER, backgroundColor:'transparent',         borderWidth:1.5, borderDash:[4,3], tension:.3, pointRadius:2, fill:false},
+        {label:'National avg',            data:station.nat_trend,   borderColor:GRAY,  backgroundColor:'transparent',         borderWidth:1.5, borderDash:[2,4], tension:.3, pointRadius:2, fill:false},
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{grid:{display:false}, ticks:{font:{size:8},color:MUTED}},
+        y:{grid:{color:'rgba(0,0,0,.04)'}, ticks:{font:{size:8},color:MUTED}},
+      }
+    }
+  });
+}
+
+// ── Entry point ───────────────────────────────────────────────────────────────
+(async () => {
+  const params    = new URLSearchParams(window.location.search);
+  const stationId = params.get('id');
+  const address   = params.get('address') || '';
+
+  if (!stationId) {
+    document.getElementById('page').innerHTML =
+      '<div class="loading">No station selected. Return to <a href="index.html">search</a>.</div>';
+    return;
+  }
+
+  try {
+    const r = await fetch('data/stations.json');
+    if (!r.ok) throw new Error('stations.json not found');
+    const stations = await r.json();
+    const station  = stations.find(s => s.id === stationId);
+
+    if (!station) {
+      document.getElementById('page').innerHTML =
+        `<div class="loading">Station "${stationId}" not found. <a href="index.html">Return to search</a>.</div>`;
+      return;
+    }
+
+    buildReport(station, decodeURIComponent(address));
+  } catch(e) {
+    document.getElementById('page').innerHTML =
+      `<div class="loading">Error loading data: ${e.message}</div>`;
+  }
+})();
+</script>
+</body>
+</html>

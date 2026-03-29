@@ -1,0 +1,5150 @@
+{
+  "version": "1.0",
+  "generated": "2026-03",
+  "precincts": [
+    {
+      "id": "athlone",
+      "name": "Athlone",
+      "province": "Western Cape",
+      "risk_score": 72,
+      "risk_label": "HIGH RISK",
+      "population": 185000,
+      "area_km2": 28,
+      "total_incidents": 5189,
+      "crime_rate_per_10k": 280.5,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "Athlone",
+          "type": "Primary",
+          "tel": "+27 21 684 5600",
+          "address": "Klipfontein Road, Athlone, 7764"
+        },
+        {
+          "name": "Manenberg",
+          "type": "Secondary",
+          "tel": "+27 21 637 1160",
+          "address": "Manenberg Ave, 7764"
+        },
+        {
+          "name": "Mitchells Plain",
+          "type": "Tertiary",
+          "tel": "+27 21 391 2000",
+          "address": "Mitchells Plain, 7785"
+        }
+      ],
+      "suburbs": [
+        "athlone",
+        "belgravia",
+        "gatesville",
+        "manenberg",
+        "hanover park",
+        "kewtown",
+        "crawford",
+        "rylands",
+        "penlyn estate",
+        "sherwood park",
+        "habibia",
+        "rosmead"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 704,
+          "yoy": -0.17
+        },
+        {
+          "name": "Business Burglary",
+          "count": 436,
+          "yoy": -0.08
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 445,
+          "yoy": 0.11
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 813,
+          "yoy": -0.14
+        },
+        {
+          "name": "Common Assault",
+          "count": 761,
+          "yoy": -0.17
+        },
+        {
+          "name": "Drug-Related",
+          "count": 571,
+          "yoy": 0.04
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 334,
+          "yoy": -0.09
+        },
+        {
+          "name": "Common Robbery",
+          "count": 461,
+          "yoy": 0.05
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 309,
+          "yoy": 0.07
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 142,
+          "yoy": -0.18
+        },
+        {
+          "name": "Murder",
+          "count": 124,
+          "yoy": 0.12
+        },
+        {
+          "name": "Carjacking",
+          "count": 89,
+          "yoy": -0.11
+        }
+      ],
+      "monthly": [
+        410,
+        386,
+        397,
+        427,
+        522,
+        507,
+        518,
+        486,
+        435,
+        437,
+        367,
+        371
+      ],
+      "trend": [
+        5984,
+        6330,
+        6408,
+        6618,
+        5189
+      ]
+    },
+    {
+      "id": "rondebosch",
+      "name": "Rondebosch",
+      "province": "Western Cape",
+      "risk_score": 38,
+      "risk_label": "MODERATE",
+      "population": 92000,
+      "area_km2": 18,
+      "total_incidents": 1575,
+      "crime_rate_per_10k": 171.2,
+      "response_min": 11,
+      "stations": [
+        {
+          "name": "Rondebosch",
+          "type": "Primary",
+          "tel": "+27 21 686 5000",
+          "address": "Main Rd, Rondebosch, 7700"
+        },
+        {
+          "name": "Claremont",
+          "type": "Secondary",
+          "tel": "+27 21 671 0028",
+          "address": "Main Rd, Claremont, 7708"
+        },
+        {
+          "name": "Wynberg",
+          "type": "Tertiary",
+          "tel": "+27 21 797 7900",
+          "address": "Maynard St, Wynberg, 7824"
+        }
+      ],
+      "suburbs": [
+        "rondebosch",
+        "newlands",
+        "mowbray",
+        "claremont",
+        "kenilworth",
+        "observatory",
+        "rosebank",
+        "bishop's court",
+        "fernwood",
+        "rondebosch east"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 206,
+          "yoy": -0.06
+        },
+        {
+          "name": "Business Burglary",
+          "count": 109,
+          "yoy": -0.08
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 176,
+          "yoy": -0.06
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 156,
+          "yoy": -0.02
+        },
+        {
+          "name": "Common Assault",
+          "count": 168,
+          "yoy": -0.09
+        },
+        {
+          "name": "Drug-Related",
+          "count": 93,
+          "yoy": 0.22
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 195,
+          "yoy": 0.08
+        },
+        {
+          "name": "Common Robbery",
+          "count": 191,
+          "yoy": 0.13
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 146,
+          "yoy": -0.02
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 71,
+          "yoy": 0.1
+        },
+        {
+          "name": "Murder",
+          "count": 15,
+          "yoy": 0.11
+        },
+        {
+          "name": "Carjacking",
+          "count": 49,
+          "yoy": 0.15
+        }
+      ],
+      "monthly": [
+        108,
+        110,
+        126,
+        134,
+        139,
+        164,
+        159,
+        135,
+        135,
+        118,
+        123,
+        110
+      ],
+      "trend": [
+        1369,
+        1382,
+        1329,
+        1347,
+        1575
+      ]
+    },
+    {
+      "id": "woodstock",
+      "name": "Woodstock",
+      "province": "Western Cape",
+      "risk_score": 58,
+      "risk_label": "ELEVATED",
+      "population": 75000,
+      "area_km2": 12,
+      "total_incidents": 3224,
+      "crime_rate_per_10k": 429.9,
+      "response_min": 14,
+      "stations": [
+        {
+          "name": "Woodstock",
+          "type": "Primary",
+          "tel": "+27 21 462 1080",
+          "address": "Albert Rd, Woodstock, 7925"
+        },
+        {
+          "name": "Salt River",
+          "type": "Secondary",
+          "tel": "+27 21 510 7000",
+          "address": "Albert Rd, Salt River, 7925"
+        },
+        {
+          "name": "Cape Town Central",
+          "type": "Tertiary",
+          "tel": "+27 21 467 8000",
+          "address": "Buitenkant St, Cape Town, 8001"
+        }
+      ],
+      "suburbs": [
+        "woodstock",
+        "salt river",
+        "observatory",
+        "de waal",
+        "walmer estate",
+        "schotsche kloof",
+        "zonnebloem",
+        "district six",
+        "upper woodstock"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 405,
+          "yoy": -0.09
+        },
+        {
+          "name": "Business Burglary",
+          "count": 349,
+          "yoy": 0.04
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 266,
+          "yoy": -0.16
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 335,
+          "yoy": 0.09
+        },
+        {
+          "name": "Common Assault",
+          "count": 454,
+          "yoy": 0.0
+        },
+        {
+          "name": "Drug-Related",
+          "count": 297,
+          "yoy": -0.02
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 327,
+          "yoy": 0.05
+        },
+        {
+          "name": "Common Robbery",
+          "count": 368,
+          "yoy": 0.19
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 210,
+          "yoy": 0.13
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 100,
+          "yoy": 0.05
+        },
+        {
+          "name": "Murder",
+          "count": 53,
+          "yoy": 0.1
+        },
+        {
+          "name": "Carjacking",
+          "count": 60,
+          "yoy": 0.01
+        }
+      ],
+      "monthly": [
+        231,
+        271,
+        288,
+        275,
+        303,
+        289,
+        328,
+        310,
+        257,
+        255,
+        238,
+        212
+      ],
+      "trend": [
+        3584,
+        3744,
+        3762,
+        3462,
+        3224
+      ]
+    },
+    {
+      "id": "cbd",
+      "name": "Cape Town Central",
+      "province": "Western Cape",
+      "risk_score": 65,
+      "risk_label": "HIGH RISK",
+      "population": 48000,
+      "area_km2": 9,
+      "total_incidents": 3938,
+      "crime_rate_per_10k": 820.4,
+      "response_min": 10,
+      "stations": [
+        {
+          "name": "Cape Town Central",
+          "type": "Primary",
+          "tel": "+27 21 467 8000",
+          "address": "Buitenkant St, Cape Town, 8001"
+        },
+        {
+          "name": "Green Point",
+          "type": "Secondary",
+          "tel": "+27 21 434 8100",
+          "address": "Waterkant St, Green Point, 8005"
+        },
+        {
+          "name": "Sea Point",
+          "type": "Tertiary",
+          "tel": "+27 21 430 0100",
+          "address": "High Level Rd, Sea Point, 8005"
+        }
+      ],
+      "suburbs": [
+        "cape town cbd",
+        "foreshore",
+        "bo-kaap",
+        "de waterkant",
+        "green point",
+        "mouille point",
+        "sea point",
+        "fresnaye",
+        "tamboerskloof",
+        "gardens",
+        "oranjezicht",
+        "vredehoek",
+        "city centre",
+        "city bowl"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 287,
+          "yoy": 0.22
+        },
+        {
+          "name": "Business Burglary",
+          "count": 561,
+          "yoy": 0.18
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 316,
+          "yoy": -0.16
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 701,
+          "yoy": 0.23
+        },
+        {
+          "name": "Common Assault",
+          "count": 478,
+          "yoy": 0.03
+        },
+        {
+          "name": "Drug-Related",
+          "count": 365,
+          "yoy": 0.15
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 340,
+          "yoy": -0.12
+        },
+        {
+          "name": "Common Robbery",
+          "count": 354,
+          "yoy": 0.06
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 253,
+          "yoy": 0.2
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 102,
+          "yoy": -0.09
+        },
+        {
+          "name": "Murder",
+          "count": 67,
+          "yoy": 0.13
+        },
+        {
+          "name": "Carjacking",
+          "count": 114,
+          "yoy": -0.05
+        }
+      ],
+      "monthly": [
+        313,
+        312,
+        324,
+        354,
+        342,
+        356,
+        358,
+        359,
+        310,
+        286,
+        261,
+        286
+      ],
+      "trend": [
+        3738,
+        3953,
+        3682,
+        3528,
+        3938
+      ]
+    },
+    {
+      "id": "constantia",
+      "name": "Constantia",
+      "province": "Western Cape",
+      "risk_score": 22,
+      "risk_label": "LOW",
+      "population": 68000,
+      "area_km2": 40,
+      "total_incidents": 842,
+      "crime_rate_per_10k": 123.8,
+      "response_min": 13,
+      "stations": [
+        {
+          "name": "Constantia",
+          "type": "Primary",
+          "tel": "+27 21 799 7100",
+          "address": "Ladies Mile Rd, Constantia, 7806"
+        },
+        {
+          "name": "Tokai",
+          "type": "Secondary",
+          "tel": "+27 21 713 0804",
+          "address": "Tokai Rd, Tokai, 7945"
+        },
+        {
+          "name": "Hout Bay",
+          "type": "Tertiary",
+          "tel": "+27 21 791 2020",
+          "address": "Princess St, Hout Bay, 7806"
+        }
+      ],
+      "suburbs": [
+        "constantia",
+        "tokai",
+        "bergvliet",
+        "meadowridge",
+        "wynberg park",
+        "bishopscourt",
+        "hout bay",
+        "llandudno",
+        "out constantia",
+        "higgovale",
+        "upper constantia"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 95,
+          "yoy": -0.12
+        },
+        {
+          "name": "Business Burglary",
+          "count": 50,
+          "yoy": 0.07
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 119,
+          "yoy": 0.16
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 65,
+          "yoy": -0.1
+        },
+        {
+          "name": "Common Assault",
+          "count": 52,
+          "yoy": 0.01
+        },
+        {
+          "name": "Drug-Related",
+          "count": 29,
+          "yoy": 0.02
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 120,
+          "yoy": 0.11
+        },
+        {
+          "name": "Common Robbery",
+          "count": 146,
+          "yoy": -0.14
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 94,
+          "yoy": -0.03
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 41,
+          "yoy": -0.07
+        },
+        {
+          "name": "Murder",
+          "count": 5,
+          "yoy": 0.01
+        },
+        {
+          "name": "Carjacking",
+          "count": 26,
+          "yoy": -0.06
+        }
+      ],
+      "monthly": [
+        57,
+        70,
+        69,
+        80,
+        80,
+        73,
+        87,
+        80,
+        76,
+        70,
+        65,
+        55
+      ],
+      "trend": [
+        798,
+        786,
+        730,
+        716,
+        842
+      ]
+    },
+    {
+      "id": "bellville",
+      "name": "Bellville",
+      "province": "Western Cape",
+      "risk_score": 55,
+      "risk_label": "ELEVATED",
+      "population": 210000,
+      "area_km2": 35,
+      "total_incidents": 3413,
+      "crime_rate_per_10k": 162.5,
+      "response_min": 15,
+      "stations": [
+        {
+          "name": "Bellville",
+          "type": "Primary",
+          "tel": "+27 21 918 3900",
+          "address": "Voortrekker Rd, Bellville, 7530"
+        },
+        {
+          "name": "Parow",
+          "type": "Secondary",
+          "tel": "+27 21 930 0700",
+          "address": "Voortrekker Rd, Parow, 7500"
+        },
+        {
+          "name": "Goodwood",
+          "type": "Tertiary",
+          "tel": "+27 21 590 1400",
+          "address": "Vasco Blvd, Goodwood, 7460"
+        }
+      ],
+      "suburbs": [
+        "bellville",
+        "parow",
+        "goodwood",
+        "elsies river",
+        "bishop lavis",
+        "uitsig",
+        "ravensmead",
+        "delft",
+        "durbanville",
+        "kraaifontein",
+        "brackenfell",
+        "stikland"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 398,
+          "yoy": 0.16
+        },
+        {
+          "name": "Business Burglary",
+          "count": 346,
+          "yoy": 0.0
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 354,
+          "yoy": 0.25
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 396,
+          "yoy": 0.13
+        },
+        {
+          "name": "Common Assault",
+          "count": 419,
+          "yoy": -0.05
+        },
+        {
+          "name": "Drug-Related",
+          "count": 444,
+          "yoy": 0.07
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 296,
+          "yoy": 0.14
+        },
+        {
+          "name": "Common Robbery",
+          "count": 287,
+          "yoy": 0.07
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 253,
+          "yoy": 0.19
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 87,
+          "yoy": 0.23
+        },
+        {
+          "name": "Murder",
+          "count": 61,
+          "yoy": -0.1
+        },
+        {
+          "name": "Carjacking",
+          "count": 72,
+          "yoy": 0.11
+        }
+      ],
+      "monthly": [
+        234,
+        243,
+        306,
+        290,
+        327,
+        334,
+        316,
+        310,
+        285,
+        285,
+        232,
+        252
+      ],
+      "trend": [
+        3005,
+        3087,
+        2989,
+        2901,
+        3413
+      ]
+    },
+    {
+      "id": "mitchells_plain",
+      "name": "Mitchells Plain",
+      "province": "Western Cape",
+      "risk_score": 81,
+      "risk_label": "CRITICAL",
+      "population": 310000,
+      "area_km2": 38,
+      "total_incidents": 7971,
+      "crime_rate_per_10k": 257.1,
+      "response_min": 22,
+      "stations": [
+        {
+          "name": "Mitchells Plain",
+          "type": "Primary",
+          "tel": "+27 21 391 2000",
+          "address": "AZ Berman Dr, Mitchells Plain, 7785"
+        },
+        {
+          "name": "Lentegeur",
+          "type": "Secondary",
+          "tel": "+27 21 371 8000",
+          "address": "Lentegeur, 7785"
+        },
+        {
+          "name": "Strandfontein",
+          "type": "Tertiary",
+          "tel": "+27 21 397 0000",
+          "address": "Strandfontein Rd, 7780"
+        }
+      ],
+      "suburbs": [
+        "mitchells plain",
+        "mitchells plain",
+        "lentegeur",
+        "portlands",
+        "tafelsig",
+        "eastridge",
+        "rocklands",
+        "strandfontein",
+        "weltevreden valley",
+        "colorado park",
+        "westridge",
+        "valhalla park"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 889,
+          "yoy": 0.02
+        },
+        {
+          "name": "Business Burglary",
+          "count": 781,
+          "yoy": 0.25
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 474,
+          "yoy": -0.09
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 1137,
+          "yoy": 0.22
+        },
+        {
+          "name": "Common Assault",
+          "count": 1439,
+          "yoy": 0.2
+        },
+        {
+          "name": "Drug-Related",
+          "count": 1045,
+          "yoy": -0.11
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 561,
+          "yoy": 0.12
+        },
+        {
+          "name": "Common Robbery",
+          "count": 597,
+          "yoy": 0.24
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 462,
+          "yoy": -0.18
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 186,
+          "yoy": -0.05
+        },
+        {
+          "name": "Murder",
+          "count": 249,
+          "yoy": 0.22
+        },
+        {
+          "name": "Carjacking",
+          "count": 151,
+          "yoy": -0.13
+        }
+      ],
+      "monthly": [
+        532,
+        620,
+        634,
+        729,
+        783,
+        718,
+        770,
+        680,
+        662,
+        664,
+        617,
+        518
+      ],
+      "trend": [
+        7451,
+        6859,
+        7156,
+        7313,
+        7971
+      ]
+    },
+    {
+      "id": "stellenbosch",
+      "name": "Stellenbosch",
+      "province": "Western Cape",
+      "risk_score": 42,
+      "risk_label": "MODERATE",
+      "population": 95000,
+      "area_km2": 830,
+      "total_incidents": 2139,
+      "crime_rate_per_10k": 225.2,
+      "response_min": 14,
+      "stations": [
+        {
+          "name": "Stellenbosch",
+          "type": "Primary",
+          "tel": "+27 21 809 7000",
+          "address": "Bird St, Stellenbosch, 7600"
+        },
+        {
+          "name": "Franschhoek",
+          "type": "Secondary",
+          "tel": "+27 21 876 2233",
+          "address": "Huguenot Rd, Franschhoek, 7690"
+        },
+        {
+          "name": "Paarl",
+          "type": "Tertiary",
+          "tel": "+27 21 860 9000",
+          "address": "Market St, Paarl, 7646"
+        }
+      ],
+      "suburbs": [
+        "stellenbosch",
+        "franschhoek",
+        "paarl",
+        "somerset west",
+        "strand",
+        "gordons bay",
+        "kayamandi",
+        "cloetesville",
+        "idas valley",
+        "jamestown",
+        "die boord"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 270,
+          "yoy": 0.06
+        },
+        {
+          "name": "Business Burglary",
+          "count": 164,
+          "yoy": -0.18
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 195,
+          "yoy": 0.2
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 251,
+          "yoy": 0.05
+        },
+        {
+          "name": "Common Assault",
+          "count": 277,
+          "yoy": 0.07
+        },
+        {
+          "name": "Drug-Related",
+          "count": 175,
+          "yoy": -0.13
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 197,
+          "yoy": 0.21
+        },
+        {
+          "name": "Common Robbery",
+          "count": 259,
+          "yoy": 0.19
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 203,
+          "yoy": -0.09
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 64,
+          "yoy": -0.14
+        },
+        {
+          "name": "Murder",
+          "count": 36,
+          "yoy": 0.2
+        },
+        {
+          "name": "Carjacking",
+          "count": 48,
+          "yoy": 0.09
+        }
+      ],
+      "monthly": [
+        144,
+        179,
+        191,
+        209,
+        213,
+        220,
+        182,
+        200,
+        172,
+        179,
+        164,
+        162
+      ],
+      "trend": [
+        2315,
+        2421,
+        2269,
+        2404,
+        2139
+      ]
+    },
+    {
+      "id": "george",
+      "name": "George",
+      "province": "Western Cape",
+      "risk_score": 48,
+      "risk_label": "MODERATE",
+      "population": 180000,
+      "area_km2": 5765,
+      "total_incidents": 2471,
+      "crime_rate_per_10k": 137.3,
+      "response_min": 16,
+      "stations": [
+        {
+          "name": "George",
+          "type": "Primary",
+          "tel": "+27 44 803 3400",
+          "address": "York St, George, 6530"
+        },
+        {
+          "name": "Mossel Bay",
+          "type": "Secondary",
+          "tel": "+27 44 606 3000",
+          "address": "Marsh St, Mossel Bay, 6500"
+        },
+        {
+          "name": "Knysna",
+          "type": "Tertiary",
+          "tel": "+27 44 302 6600",
+          "address": "Queen St, Knysna, 6570"
+        }
+      ],
+      "suburbs": [
+        "george",
+        "mossel bay",
+        "knysna",
+        "plettenberg bay",
+        "wilderness",
+        "sedgefield",
+        "herold's bay",
+        "victoria bay",
+        "great brak river",
+        "hartenbos"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 284,
+          "yoy": 0.17
+        },
+        {
+          "name": "Business Burglary",
+          "count": 214,
+          "yoy": -0.05
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 269,
+          "yoy": -0.08
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 225,
+          "yoy": -0.1
+        },
+        {
+          "name": "Common Assault",
+          "count": 279,
+          "yoy": 0.19
+        },
+        {
+          "name": "Drug-Related",
+          "count": 247,
+          "yoy": -0.06
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 242,
+          "yoy": -0.01
+        },
+        {
+          "name": "Common Robbery",
+          "count": 301,
+          "yoy": 0.05
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 228,
+          "yoy": -0.13
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 88,
+          "yoy": -0.1
+        },
+        {
+          "name": "Murder",
+          "count": 45,
+          "yoy": -0.07
+        },
+        {
+          "name": "Carjacking",
+          "count": 49,
+          "yoy": 0.01
+        }
+      ],
+      "monthly": [
+        187,
+        183,
+        210,
+        221,
+        227,
+        240,
+        221,
+        230,
+        185,
+        206,
+        180,
+        182
+      ],
+      "trend": [
+        2784,
+        2723,
+        2536,
+        2602,
+        2471
+      ]
+    },
+    {
+      "id": "khayelitsha",
+      "name": "Khayelitsha",
+      "province": "Western Cape",
+      "risk_score": 88,
+      "risk_label": "CRITICAL",
+      "population": 450000,
+      "area_km2": 52,
+      "total_incidents": 10552,
+      "crime_rate_per_10k": 234.5,
+      "response_min": 28,
+      "stations": [
+        {
+          "name": "Khayelitsha",
+          "type": "Primary",
+          "tel": "+27 21 360 3100",
+          "address": "Steve Biko Dr, Khayelitsha, 7784"
+        },
+        {
+          "name": "Site B",
+          "type": "Secondary",
+          "tel": "+27 21 361 9600",
+          "address": "Site B, Khayelitsha, 7784"
+        },
+        {
+          "name": "Harare",
+          "type": "Tertiary",
+          "tel": "+27 21 360 5000",
+          "address": "Harare, Khayelitsha, 7784"
+        }
+      ],
+      "suburbs": [
+        "khayelitsha",
+        "site b",
+        "site c",
+        "harare",
+        "makhaza",
+        "town 2",
+        "town 3",
+        "klipfontein glades",
+        "eyethu",
+        "enkanini",
+        "monwabisi",
+        "lwandle"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 1344,
+          "yoy": 0.18
+        },
+        {
+          "name": "Business Burglary",
+          "count": 758,
+          "yoy": -0.05
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 671,
+          "yoy": -0.0
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 1727,
+          "yoy": -0.05
+        },
+        {
+          "name": "Common Assault",
+          "count": 1739,
+          "yoy": 0.0
+        },
+        {
+          "name": "Drug-Related",
+          "count": 1511,
+          "yoy": 0.11
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 748,
+          "yoy": 0.08
+        },
+        {
+          "name": "Common Robbery",
+          "count": 711,
+          "yoy": 0.06
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 491,
+          "yoy": -0.06
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 217,
+          "yoy": 0.07
+        },
+        {
+          "name": "Murder",
+          "count": 391,
+          "yoy": 0.02
+        },
+        {
+          "name": "Carjacking",
+          "count": 244,
+          "yoy": -0.09
+        }
+      ],
+      "monthly": [
+        761,
+        878,
+        931,
+        882,
+        911,
+        1014,
+        1019,
+        914,
+        935,
+        854,
+        791,
+        706
+      ],
+      "trend": [
+        8575,
+        8225,
+        8192,
+        8651,
+        10552
+      ]
+    },
+    {
+      "id": "johannesburg_central",
+      "name": "Johannesburg Central",
+      "province": "Gauteng",
+      "risk_score": 78,
+      "risk_label": "HIGH RISK",
+      "population": 320000,
+      "area_km2": 14,
+      "total_incidents": 6708,
+      "crime_rate_per_10k": 209.6,
+      "response_min": 12,
+      "stations": [
+        {
+          "name": "Johannesburg Central",
+          "type": "Primary",
+          "tel": "+27 11 220 7600",
+          "address": "Commissioner St, JHB, 2001"
+        },
+        {
+          "name": "Hillbrow",
+          "type": "Secondary",
+          "tel": "+27 11 720 0800",
+          "address": "Hillbrow, 2038"
+        },
+        {
+          "name": "Yeoville",
+          "type": "Tertiary",
+          "tel": "+27 11 648 2000",
+          "address": "Yeoville, 2198"
+        }
+      ],
+      "suburbs": [
+        "johannesburg cbd",
+        "hillbrow",
+        "berea",
+        "yeoville",
+        "braamfontein",
+        "newtown",
+        "doornfontein",
+        "jeppestown",
+        "troyeville",
+        "city centre johannesburg",
+        "fordsburg",
+        "ferreirasdorp",
+        "marshalltown"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 604,
+          "yoy": 0.09
+        },
+        {
+          "name": "Business Burglary",
+          "count": 788,
+          "yoy": 0.12
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 495,
+          "yoy": -0.08
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 1168,
+          "yoy": -0.18
+        },
+        {
+          "name": "Common Assault",
+          "count": 1066,
+          "yoy": 0.15
+        },
+        {
+          "name": "Drug-Related",
+          "count": 710,
+          "yoy": 0.0
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 419,
+          "yoy": 0.23
+        },
+        {
+          "name": "Common Robbery",
+          "count": 529,
+          "yoy": -0.16
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 372,
+          "yoy": 0.18
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 152,
+          "yoy": 0.16
+        },
+        {
+          "name": "Murder",
+          "count": 182,
+          "yoy": 0.24
+        },
+        {
+          "name": "Carjacking",
+          "count": 223,
+          "yoy": 0.23
+        }
+      ],
+      "monthly": [
+        524,
+        528,
+        583,
+        601,
+        673,
+        649,
+        681,
+        630,
+        556,
+        492,
+        461,
+        488
+      ],
+      "trend": [
+        7446,
+        7597,
+        7323,
+        6828,
+        6708
+      ]
+    },
+    {
+      "id": "sandton",
+      "name": "Sandton",
+      "province": "Gauteng",
+      "risk_score": 35,
+      "risk_label": "MODERATE",
+      "population": 180000,
+      "area_km2": 62,
+      "total_incidents": 1689,
+      "crime_rate_per_10k": 93.8,
+      "response_min": 10,
+      "stations": [
+        {
+          "name": "Sandton",
+          "type": "Primary",
+          "tel": "+27 11 883 3101",
+          "address": "Rivonia Rd, Sandton, 2196"
+        },
+        {
+          "name": "Randburg",
+          "type": "Secondary",
+          "tel": "+27 11 793 1200",
+          "address": "Republic Rd, Randburg, 2194"
+        },
+        {
+          "name": "Fourways",
+          "type": "Tertiary",
+          "tel": "+27 11 465 2552",
+          "address": "Fourways, 2191"
+        }
+      ],
+      "suburbs": [
+        "sandton",
+        "fourways",
+        "rivonia",
+        "morningside",
+        "strathavon",
+        "bryanston",
+        "sunninghill",
+        "kramerville",
+        "benmore",
+        "hyde park",
+        "houghton",
+        "parktown",
+        "rosebank",
+        "melrose arch"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 223,
+          "yoy": -0.04
+        },
+        {
+          "name": "Business Burglary",
+          "count": 170,
+          "yoy": -0.12
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 176,
+          "yoy": 0.12
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 178,
+          "yoy": -0.15
+        },
+        {
+          "name": "Common Assault",
+          "count": 140,
+          "yoy": 0.05
+        },
+        {
+          "name": "Drug-Related",
+          "count": 70,
+          "yoy": -0.09
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 175,
+          "yoy": 0.21
+        },
+        {
+          "name": "Common Robbery",
+          "count": 209,
+          "yoy": 0.12
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 172,
+          "yoy": 0.15
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 57,
+          "yoy": -0.18
+        },
+        {
+          "name": "Murder",
+          "count": 13,
+          "yoy": 0.14
+        },
+        {
+          "name": "Carjacking",
+          "count": 106,
+          "yoy": 0.23
+        }
+      ],
+      "monthly": [
+        120,
+        136,
+        142,
+        154,
+        150,
+        152,
+        156,
+        137,
+        136,
+        134,
+        120,
+        111
+      ],
+      "trend": [
+        1567,
+        1598,
+        1477,
+        1452,
+        1689
+      ]
+    },
+    {
+      "id": "soweto",
+      "name": "Soweto",
+      "province": "Gauteng",
+      "risk_score": 82,
+      "risk_label": "CRITICAL",
+      "population": 1200000,
+      "area_km2": 200,
+      "total_incidents": 10780,
+      "crime_rate_per_10k": 89.8,
+      "response_min": 25,
+      "stations": [
+        {
+          "name": "Meadowlands",
+          "type": "Primary",
+          "tel": "+27 11 984 0700",
+          "address": "Meadowlands, Soweto, 1852"
+        },
+        {
+          "name": "Dobsonville",
+          "type": "Secondary",
+          "tel": "+27 11 984 9900",
+          "address": "Dobsonville, 1863"
+        },
+        {
+          "name": "Protea Glen",
+          "type": "Tertiary",
+          "tel": "+27 11 941 1400",
+          "address": "Protea Glen, 1818"
+        }
+      ],
+      "suburbs": [
+        "soweto",
+        "meadowlands",
+        "dobsonville",
+        "protea glen",
+        "diepkloof",
+        "chiawelo",
+        "moletsane",
+        "naledi",
+        "jabulani",
+        "orlando east",
+        "orlando west",
+        "mofolo",
+        "klipspruit",
+        "pimville",
+        "zola",
+        "zondi",
+        "phiri",
+        "mapetla",
+        "senoane"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 1222,
+          "yoy": 0.1
+        },
+        {
+          "name": "Business Burglary",
+          "count": 761,
+          "yoy": 0.02
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 657,
+          "yoy": -0.02
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 1735,
+          "yoy": -0.04
+        },
+        {
+          "name": "Common Assault",
+          "count": 2151,
+          "yoy": -0.02
+        },
+        {
+          "name": "Drug-Related",
+          "count": 1226,
+          "yoy": 0.18
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 659,
+          "yoy": -0.14
+        },
+        {
+          "name": "Common Robbery",
+          "count": 691,
+          "yoy": 0.05
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 710,
+          "yoy": -0.03
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 248,
+          "yoy": 0.16
+        },
+        {
+          "name": "Murder",
+          "count": 397,
+          "yoy": 0.14
+        },
+        {
+          "name": "Carjacking",
+          "count": 323,
+          "yoy": -0.09
+        }
+      ],
+      "monthly": [
+        706,
+        773,
+        831,
+        998,
+        1028,
+        974,
+        1055,
+        1017,
+        838,
+        848,
+        820,
+        704
+      ],
+      "trend": [
+        13060,
+        12241,
+        11312,
+        10972,
+        10780
+      ]
+    },
+    {
+      "id": "pretoria_central",
+      "name": "Pretoria Central",
+      "province": "Gauteng",
+      "risk_score": 70,
+      "risk_label": "HIGH RISK",
+      "population": 210000,
+      "area_km2": 18,
+      "total_incidents": 5235,
+      "crime_rate_per_10k": 249.3,
+      "response_min": 14,
+      "stations": [
+        {
+          "name": "Pretoria Central",
+          "type": "Primary",
+          "tel": "+27 12 309 1000",
+          "address": "Pretorius St, Pretoria, 0002"
+        },
+        {
+          "name": "Sunnyside",
+          "type": "Secondary",
+          "tel": "+27 12 342 2020",
+          "address": "Sunnyside, 0132"
+        },
+        {
+          "name": "Arcadia",
+          "type": "Tertiary",
+          "tel": "+27 12 341 3060",
+          "address": "Arcadia, 0083"
+        }
+      ],
+      "suburbs": [
+        "pretoria cbd",
+        "sunnyside",
+        "arcadia",
+        "hatfield",
+        "brooklyn",
+        "muckleneuk",
+        "clydesdale",
+        "prinshof",
+        "steyn city",
+        "groenkloof",
+        "waterkloof",
+        "lynnwood",
+        "menlyn"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 638,
+          "yoy": -0.01
+        },
+        {
+          "name": "Business Burglary",
+          "count": 651,
+          "yoy": -0.15
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 431,
+          "yoy": 0.09
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 673,
+          "yoy": 0.15
+        },
+        {
+          "name": "Common Assault",
+          "count": 789,
+          "yoy": 0.08
+        },
+        {
+          "name": "Drug-Related",
+          "count": 497,
+          "yoy": 0.24
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 414,
+          "yoy": -0.03
+        },
+        {
+          "name": "Common Robbery",
+          "count": 424,
+          "yoy": -0.02
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 332,
+          "yoy": -0.03
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 140,
+          "yoy": 0.17
+        },
+        {
+          "name": "Murder",
+          "count": 98,
+          "yoy": 0.23
+        },
+        {
+          "name": "Carjacking",
+          "count": 148,
+          "yoy": 0.18
+        }
+      ],
+      "monthly": [
+        395,
+        398,
+        456,
+        512,
+        470,
+        532,
+        496,
+        467,
+        430,
+        422,
+        361,
+        396
+      ],
+      "trend": [
+        5535,
+        5873,
+        5632,
+        5601,
+        5235
+      ]
+    },
+    {
+      "id": "tshwane_north",
+      "name": "Tshwane North",
+      "province": "Gauteng",
+      "risk_score": 45,
+      "risk_label": "MODERATE",
+      "population": 250000,
+      "area_km2": 820,
+      "total_incidents": 2761,
+      "crime_rate_per_10k": 110.4,
+      "response_min": 16,
+      "stations": [
+        {
+          "name": "Temba",
+          "type": "Primary",
+          "tel": "+27 12 716 1000",
+          "address": "Temba, 0407"
+        },
+        {
+          "name": "Hammanskraal",
+          "type": "Secondary",
+          "tel": "+27 12 711 2000",
+          "address": "Hammanskraal, 0407"
+        },
+        {
+          "name": "Soshanguve",
+          "type": "Tertiary",
+          "tel": "+27 12 799 0100",
+          "address": "Soshanguve, 0152"
+        }
+      ],
+      "suburbs": [
+        "soshanguve",
+        "hammanskraal",
+        "temba",
+        "winterveld",
+        "mabopane",
+        "ga-rankuwa",
+        "rosslyn",
+        "akasia",
+        "ninapark",
+        "karenpark"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 349,
+          "yoy": -0.17
+        },
+        {
+          "name": "Business Burglary",
+          "count": 291,
+          "yoy": -0.1
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 241,
+          "yoy": 0.16
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 314,
+          "yoy": 0.2
+        },
+        {
+          "name": "Common Assault",
+          "count": 419,
+          "yoy": -0.06
+        },
+        {
+          "name": "Drug-Related",
+          "count": 225,
+          "yoy": 0.23
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 216,
+          "yoy": 0.13
+        },
+        {
+          "name": "Common Robbery",
+          "count": 279,
+          "yoy": 0.15
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 226,
+          "yoy": 0.1
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 82,
+          "yoy": 0.16
+        },
+        {
+          "name": "Murder",
+          "count": 57,
+          "yoy": -0.08
+        },
+        {
+          "name": "Carjacking",
+          "count": 62,
+          "yoy": -0.05
+        }
+      ],
+      "monthly": [
+        203,
+        211,
+        231,
+        243,
+        272,
+        255,
+        270,
+        236,
+        218,
+        196,
+        187,
+        180
+      ],
+      "trend": [
+        2918,
+        2771,
+        2645,
+        2638,
+        2761
+      ]
+    },
+    {
+      "id": "ekurhuleni_east",
+      "name": "Ekurhuleni East",
+      "province": "Gauteng",
+      "risk_score": 68,
+      "risk_label": "HIGH RISK",
+      "population": 480000,
+      "area_km2": 110,
+      "total_incidents": 5058,
+      "crime_rate_per_10k": 105.4,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Tembisa",
+          "type": "Primary",
+          "tel": "+27 11 926 5000",
+          "address": "Tembisa, 1628"
+        },
+        {
+          "name": "Daveyton",
+          "type": "Secondary",
+          "tel": "+27 11 423 2215",
+          "address": "Daveyton, 1520"
+        },
+        {
+          "name": "Benoni",
+          "type": "Tertiary",
+          "tel": "+27 11 747 5200",
+          "address": "Benoni, 1501"
+        }
+      ],
+      "suburbs": [
+        "tembisa",
+        "daveyton",
+        "benoni",
+        "brakpan",
+        "boksburg",
+        "germiston",
+        "katlehong",
+        "tokoza",
+        "thokoza",
+        "vosloorus",
+        "alberton",
+        "edenvale",
+        "kempton park"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 742,
+          "yoy": 0.05
+        },
+        {
+          "name": "Business Burglary",
+          "count": 420,
+          "yoy": -0.14
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 363,
+          "yoy": -0.08
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 632,
+          "yoy": -0.17
+        },
+        {
+          "name": "Common Assault",
+          "count": 707,
+          "yoy": -0.06
+        },
+        {
+          "name": "Drug-Related",
+          "count": 571,
+          "yoy": 0.06
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 397,
+          "yoy": -0.13
+        },
+        {
+          "name": "Common Robbery",
+          "count": 471,
+          "yoy": 0.03
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 361,
+          "yoy": 0.07
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 123,
+          "yoy": 0.01
+        },
+        {
+          "name": "Murder",
+          "count": 113,
+          "yoy": -0.16
+        },
+        {
+          "name": "Carjacking",
+          "count": 158,
+          "yoy": 0.03
+        }
+      ],
+      "monthly": [
+        390,
+        382,
+        385,
+        464,
+        433,
+        450,
+        482,
+        435,
+        463,
+        360,
+        386,
+        365
+      ],
+      "trend": [
+        5398,
+        5417,
+        5375,
+        5325,
+        5058
+      ]
+    },
+    {
+      "id": "krugersdorp",
+      "name": "Krugersdorp",
+      "province": "Gauteng",
+      "risk_score": 62,
+      "risk_label": "ELEVATED",
+      "population": 160000,
+      "area_km2": 125,
+      "total_incidents": 3914,
+      "crime_rate_per_10k": 244.6,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "Krugersdorp",
+          "type": "Primary",
+          "tel": "+27 11 660 6500",
+          "address": "Monument St, Krugersdorp, 1739"
+        },
+        {
+          "name": "Kagiso",
+          "type": "Secondary",
+          "tel": "+27 11 660 2600",
+          "address": "Kagiso, 1739"
+        },
+        {
+          "name": "Randfontein",
+          "type": "Tertiary",
+          "tel": "+27 11 693 2200",
+          "address": "Randfontein, 1759"
+        }
+      ],
+      "suburbs": [
+        "krugersdorp",
+        "kagiso",
+        "randfontein",
+        "west rand",
+        "westonaria",
+        "chamdor",
+        "munsieville",
+        "azaadville",
+        "tarlton",
+        "roodepoort",
+        "florida"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 578,
+          "yoy": -0.05
+        },
+        {
+          "name": "Business Burglary",
+          "count": 391,
+          "yoy": 0.08
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 360,
+          "yoy": 0.23
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 459,
+          "yoy": -0.09
+        },
+        {
+          "name": "Common Assault",
+          "count": 572,
+          "yoy": -0.11
+        },
+        {
+          "name": "Drug-Related",
+          "count": 378,
+          "yoy": -0.15
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 268,
+          "yoy": 0.01
+        },
+        {
+          "name": "Common Robbery",
+          "count": 367,
+          "yoy": -0.05
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 251,
+          "yoy": 0.12
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 111,
+          "yoy": 0.02
+        },
+        {
+          "name": "Murder",
+          "count": 97,
+          "yoy": 0.22
+        },
+        {
+          "name": "Carjacking",
+          "count": 82,
+          "yoy": 0.09
+        }
+      ],
+      "monthly": [
+        292,
+        327,
+        321,
+        353,
+        379,
+        405,
+        392,
+        320,
+        304,
+        290,
+        297,
+        281
+      ],
+      "trend": [
+        3367,
+        3469,
+        3580,
+        3833,
+        3914
+      ]
+    },
+    {
+      "id": "midrand",
+      "name": "Midrand",
+      "province": "Gauteng",
+      "risk_score": 40,
+      "risk_label": "MODERATE",
+      "population": 195000,
+      "area_km2": 144,
+      "total_incidents": 1975,
+      "crime_rate_per_10k": 101.3,
+      "response_min": 12,
+      "stations": [
+        {
+          "name": "Midrand",
+          "type": "Primary",
+          "tel": "+27 11 315 4700",
+          "address": "16th Rd, Midrand, 1685"
+        },
+        {
+          "name": "Ivory Park",
+          "type": "Secondary",
+          "tel": "+27 11 316 4900",
+          "address": "Ivory Park, 1685"
+        },
+        {
+          "name": "Centurion",
+          "type": "Tertiary",
+          "tel": "+27 12 663 0300",
+          "address": "Centurion, 0157"
+        }
+      ],
+      "suburbs": [
+        "midrand",
+        "ivory park",
+        "clayville",
+        "halfway house",
+        "grand central",
+        "waterfall",
+        "kyalami",
+        "jukskei park",
+        "centurion",
+        "lyttelton",
+        "rooihuiskraal",
+        "wierdapark"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 269,
+          "yoy": -0.15
+        },
+        {
+          "name": "Business Burglary",
+          "count": 162,
+          "yoy": 0.01
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 204,
+          "yoy": -0.07
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 189,
+          "yoy": 0.23
+        },
+        {
+          "name": "Common Assault",
+          "count": 237,
+          "yoy": 0.07
+        },
+        {
+          "name": "Drug-Related",
+          "count": 153,
+          "yoy": 0.25
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 212,
+          "yoy": -0.06
+        },
+        {
+          "name": "Common Robbery",
+          "count": 197,
+          "yoy": 0.15
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 173,
+          "yoy": 0.1
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 75,
+          "yoy": -0.1
+        },
+        {
+          "name": "Murder",
+          "count": 24,
+          "yoy": 0.09
+        },
+        {
+          "name": "Carjacking",
+          "count": 80,
+          "yoy": -0.14
+        }
+      ],
+      "monthly": [
+        138,
+        147,
+        170,
+        189,
+        179,
+        196,
+        178,
+        192,
+        174,
+        153,
+        141,
+        134
+      ],
+      "trend": [
+        1973,
+        1943,
+        1947,
+        2099,
+        1975
+      ]
+    },
+    {
+      "id": "alexandra",
+      "name": "Alexandra",
+      "province": "Gauteng",
+      "risk_score": 85,
+      "risk_label": "CRITICAL",
+      "population": 180000,
+      "area_km2": 6,
+      "total_incidents": 9107,
+      "crime_rate_per_10k": 505.9,
+      "response_min": 26,
+      "stations": [
+        {
+          "name": "Alexandra",
+          "type": "Primary",
+          "tel": "+27 11 882 4050",
+          "address": "Pan Africa Arcade, Alexandra, 2090"
+        },
+        {
+          "name": "Wynberg",
+          "type": "Secondary",
+          "tel": "+27 11 803 7280",
+          "address": "Wynberg, 2090"
+        },
+        {
+          "name": "Sandton",
+          "type": "Tertiary",
+          "tel": "+27 11 883 3101",
+          "address": "Rivonia Rd, Sandton, 2196"
+        }
+      ],
+      "suburbs": [
+        "alexandra",
+        "alex",
+        "tsutsumani",
+        "marlboro",
+        "windmill park",
+        "linbro park",
+        "glenhazel",
+        "victory park",
+        "lombardy east",
+        "norscot"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 1105,
+          "yoy": -0.0
+        },
+        {
+          "name": "Business Burglary",
+          "count": 636,
+          "yoy": -0.02
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 672,
+          "yoy": 0.09
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 1597,
+          "yoy": -0.09
+        },
+        {
+          "name": "Common Assault",
+          "count": 1662,
+          "yoy": 0.22
+        },
+        {
+          "name": "Drug-Related",
+          "count": 1071,
+          "yoy": 0.12
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 518,
+          "yoy": 0.24
+        },
+        {
+          "name": "Common Robbery",
+          "count": 684,
+          "yoy": -0.08
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 455,
+          "yoy": 0.06
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 198,
+          "yoy": -0.14
+        },
+        {
+          "name": "Murder",
+          "count": 340,
+          "yoy": 0.21
+        },
+        {
+          "name": "Carjacking",
+          "count": 169,
+          "yoy": -0.13
+        }
+      ],
+      "monthly": [
+        704,
+        701,
+        791,
+        817,
+        818,
+        931,
+        939,
+        774,
+        766,
+        685,
+        716,
+        646
+      ],
+      "trend": [
+        11099,
+        10702,
+        11198,
+        11046,
+        9107
+      ]
+    },
+    {
+      "id": "roodepoort",
+      "name": "Roodepoort",
+      "province": "Gauteng",
+      "risk_score": 52,
+      "risk_label": "ELEVATED",
+      "population": 220000,
+      "area_km2": 100,
+      "total_incidents": 3020,
+      "crime_rate_per_10k": 137.3,
+      "response_min": 15,
+      "stations": [
+        {
+          "name": "Roodepoort",
+          "type": "Primary",
+          "tel": "+27 11 672 2600",
+          "address": "Ontdekkers Rd, Roodepoort, 1724"
+        },
+        {
+          "name": "Dobsonville",
+          "type": "Secondary",
+          "tel": "+27 11 984 9900",
+          "address": "Dobsonville, 1863"
+        },
+        {
+          "name": "Florida",
+          "type": "Tertiary",
+          "tel": "+27 11 672 2700",
+          "address": "Florida, 1710"
+        }
+      ],
+      "suburbs": [
+        "roodepoort",
+        "florida",
+        "florida lake",
+        "little falls",
+        "weltevredenpark",
+        "wilgeheuwel",
+        "constantia kloof",
+        "helderkruin",
+        "strubensvalley",
+        "weltevreden park",
+        "johannesburg west"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 396,
+          "yoy": 0.17
+        },
+        {
+          "name": "Business Burglary",
+          "count": 269,
+          "yoy": -0.05
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 295,
+          "yoy": 0.25
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 358,
+          "yoy": -0.12
+        },
+        {
+          "name": "Common Assault",
+          "count": 400,
+          "yoy": -0.03
+        },
+        {
+          "name": "Drug-Related",
+          "count": 292,
+          "yoy": 0.05
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 266,
+          "yoy": -0.04
+        },
+        {
+          "name": "Common Robbery",
+          "count": 277,
+          "yoy": 0.12
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 239,
+          "yoy": -0.08
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 97,
+          "yoy": -0.16
+        },
+        {
+          "name": "Murder",
+          "count": 61,
+          "yoy": 0.12
+        },
+        {
+          "name": "Carjacking",
+          "count": 70,
+          "yoy": -0.01
+        }
+      ],
+      "monthly": [
+        226,
+        247,
+        275,
+        270,
+        258,
+        289,
+        289,
+        290,
+        270,
+        230,
+        220,
+        212
+      ],
+      "trend": [
+        3241,
+        3321,
+        3137,
+        3122,
+        3020
+      ]
+    },
+    {
+      "id": "vanderbijlpark",
+      "name": "Vanderbijlpark",
+      "province": "Gauteng",
+      "risk_score": 60,
+      "risk_label": "ELEVATED",
+      "population": 270000,
+      "area_km2": 180,
+      "total_incidents": 4077,
+      "crime_rate_per_10k": 151.0,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "Vanderbijlpark",
+          "type": "Primary",
+          "tel": "+27 16 933 1170",
+          "address": "Vaal St, Vanderbijlpark, 1900"
+        },
+        {
+          "name": "Vereeniging",
+          "type": "Secondary",
+          "tel": "+27 16 428 6600",
+          "address": "Market St, Vereeniging, 1930"
+        },
+        {
+          "name": "Sebokeng",
+          "type": "Tertiary",
+          "tel": "+27 16 594 3000",
+          "address": "Sebokeng, 1983"
+        }
+      ],
+      "suburbs": [
+        "vanderbijlpark",
+        "vereeniging",
+        "sebokeng",
+        "evaton",
+        "orange farm",
+        "meyerton",
+        "roshnee",
+        "sharpeville",
+        "bophelong",
+        "boipatong",
+        "three rivers"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 491,
+          "yoy": 0.12
+        },
+        {
+          "name": "Business Burglary",
+          "count": 404,
+          "yoy": 0.19
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 380,
+          "yoy": 0.19
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 497,
+          "yoy": -0.04
+        },
+        {
+          "name": "Common Assault",
+          "count": 595,
+          "yoy": 0.15
+        },
+        {
+          "name": "Drug-Related",
+          "count": 430,
+          "yoy": -0.16
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 280,
+          "yoy": 0.09
+        },
+        {
+          "name": "Common Robbery",
+          "count": 411,
+          "yoy": 0.25
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 300,
+          "yoy": 0.01
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 94,
+          "yoy": 0.09
+        },
+        {
+          "name": "Murder",
+          "count": 114,
+          "yoy": 0.01
+        },
+        {
+          "name": "Carjacking",
+          "count": 81,
+          "yoy": 0.21
+        }
+      ],
+      "monthly": [
+        268,
+        332,
+        325,
+        356,
+        356,
+        393,
+        388,
+        386,
+        317,
+        287,
+        317,
+        295
+      ],
+      "trend": [
+        3895,
+        3673,
+        3650,
+        3506,
+        4077
+      ]
+    },
+    {
+      "id": "durban_central",
+      "name": "Durban Central",
+      "province": "KwaZulu-Natal",
+      "risk_score": 74,
+      "risk_label": "HIGH RISK",
+      "population": 290000,
+      "area_km2": 20,
+      "total_incidents": 5694,
+      "crime_rate_per_10k": 196.3,
+      "response_min": 14,
+      "stations": [
+        {
+          "name": "Durban Central",
+          "type": "Primary",
+          "tel": "+27 31 325 5000",
+          "address": "Commercial Rd, Durban, 4001"
+        },
+        {
+          "name": "Berea",
+          "type": "Secondary",
+          "tel": "+27 31 208 9515",
+          "address": "Berea Rd, Berea, 4001"
+        },
+        {
+          "name": "Umbilo",
+          "type": "Tertiary",
+          "tel": "+27 31 207 2025",
+          "address": "Umgeni Rd, Umbilo, 4001"
+        }
+      ],
+      "suburbs": [
+        "durban cbd",
+        "berea",
+        "umbilo",
+        "stamford hill",
+        "greyville",
+        "musgrave",
+        "overport",
+        "morningside durban",
+        "essenwood",
+        "south beach",
+        "north beach",
+        "point",
+        "congella"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 477,
+          "yoy": 0.17
+        },
+        {
+          "name": "Business Burglary",
+          "count": 815,
+          "yoy": 0.11
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 402,
+          "yoy": 0.01
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 854,
+          "yoy": 0.07
+        },
+        {
+          "name": "Common Assault",
+          "count": 875,
+          "yoy": 0.0
+        },
+        {
+          "name": "Drug-Related",
+          "count": 569,
+          "yoy": 0.18
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 382,
+          "yoy": -0.01
+        },
+        {
+          "name": "Common Robbery",
+          "count": 473,
+          "yoy": -0.08
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 371,
+          "yoy": 0.07
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 160,
+          "yoy": -0.05
+        },
+        {
+          "name": "Murder",
+          "count": 160,
+          "yoy": 0.1
+        },
+        {
+          "name": "Carjacking",
+          "count": 156,
+          "yoy": 0.06
+        }
+      ],
+      "monthly": [
+        428,
+        460,
+        431,
+        520,
+        535,
+        589,
+        513,
+        540,
+        484,
+        425,
+        424,
+        413
+      ],
+      "trend": [
+        6314,
+        6475,
+        6825,
+        6965,
+        5694
+      ]
+    },
+    {
+      "id": "pinetown",
+      "name": "Pinetown",
+      "province": "KwaZulu-Natal",
+      "risk_score": 62,
+      "risk_label": "ELEVATED",
+      "population": 340000,
+      "area_km2": 280,
+      "total_incidents": 3952,
+      "crime_rate_per_10k": 116.2,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "Pinetown",
+          "type": "Primary",
+          "tel": "+27 31 700 3200",
+          "address": "King Cetshwayo Hwy, Pinetown, 3610"
+        },
+        {
+          "name": "Queensburgh",
+          "type": "Secondary",
+          "tel": "+27 31 464 4566",
+          "address": "Queensburgh, 4093"
+        },
+        {
+          "name": "Kloof",
+          "type": "Tertiary",
+          "tel": "+27 31 764 5558",
+          "address": "Kloof, 3610"
+        }
+      ],
+      "suburbs": [
+        "pinetown",
+        "queensburgh",
+        "kloof",
+        "hillcrest",
+        "gillitts",
+        "cowies hill",
+        "westville",
+        "new germany",
+        "new germany",
+        "mayville",
+        "northdale",
+        "merebank",
+        "chatsworth"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 551,
+          "yoy": -0.05
+        },
+        {
+          "name": "Business Burglary",
+          "count": 345,
+          "yoy": 0.07
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 376,
+          "yoy": -0.14
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 454,
+          "yoy": 0.14
+        },
+        {
+          "name": "Common Assault",
+          "count": 476,
+          "yoy": -0.12
+        },
+        {
+          "name": "Drug-Related",
+          "count": 400,
+          "yoy": 0.24
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 333,
+          "yoy": 0.21
+        },
+        {
+          "name": "Common Robbery",
+          "count": 411,
+          "yoy": -0.07
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 313,
+          "yoy": 0.03
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 120,
+          "yoy": 0.14
+        },
+        {
+          "name": "Murder",
+          "count": 83,
+          "yoy": -0.13
+        },
+        {
+          "name": "Carjacking",
+          "count": 90,
+          "yoy": -0.12
+        }
+      ],
+      "monthly": [
+        313,
+        326,
+        344,
+        388,
+        406,
+        401,
+        362,
+        374,
+        297,
+        306,
+        283,
+        289
+      ],
+      "trend": [
+        4281,
+        4502,
+        4819,
+        4517,
+        3952
+      ]
+    },
+    {
+      "id": "umlazi",
+      "name": "Umlazi",
+      "province": "KwaZulu-Natal",
+      "risk_score": 80,
+      "risk_label": "HIGH RISK",
+      "population": 580000,
+      "area_km2": 70,
+      "total_incidents": 7652,
+      "crime_rate_per_10k": 131.9,
+      "response_min": 24,
+      "stations": [
+        {
+          "name": "Umlazi",
+          "type": "Primary",
+          "tel": "+27 31 907 5000",
+          "address": "Mangosuthu Hwy, Umlazi, 4031"
+        },
+        {
+          "name": "KwaMashu",
+          "type": "Secondary",
+          "tel": "+27 31 502 3400",
+          "address": "KwaMashu, 4360"
+        },
+        {
+          "name": "Isipingo",
+          "type": "Tertiary",
+          "tel": "+27 31 902 9800",
+          "address": "Isipingo, 4133"
+        }
+      ],
+      "suburbs": [
+        "umlazi",
+        "kwamashu",
+        "isipingo",
+        "amanzimtoti",
+        "umbumbulu",
+        "ntuzuma",
+        "kwandengezi",
+        "lamontville",
+        "wentworth",
+        "merewent",
+        "montclair",
+        "clairwood"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 864,
+          "yoy": 0.2
+        },
+        {
+          "name": "Business Burglary",
+          "count": 586,
+          "yoy": 0.21
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 527,
+          "yoy": -0.15
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 1421,
+          "yoy": 0.21
+        },
+        {
+          "name": "Common Assault",
+          "count": 1354,
+          "yoy": -0.0
+        },
+        {
+          "name": "Drug-Related",
+          "count": 770,
+          "yoy": 0.23
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 508,
+          "yoy": 0.03
+        },
+        {
+          "name": "Common Robbery",
+          "count": 538,
+          "yoy": 0.2
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 416,
+          "yoy": 0.02
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 189,
+          "yoy": 0.14
+        },
+        {
+          "name": "Murder",
+          "count": 310,
+          "yoy": 0.0
+        },
+        {
+          "name": "Carjacking",
+          "count": 169,
+          "yoy": -0.11
+        }
+      ],
+      "monthly": [
+        545,
+        542,
+        636,
+        672,
+        785,
+        664,
+        701,
+        677,
+        695,
+        631,
+        510,
+        562
+      ],
+      "trend": [
+        8383,
+        8193,
+        8060,
+        7660,
+        7652
+      ]
+    },
+    {
+      "id": "pietermaritzburg",
+      "name": "Pietermaritzburg",
+      "province": "KwaZulu-Natal",
+      "risk_score": 66,
+      "risk_label": "HIGH RISK",
+      "population": 620000,
+      "area_km2": 6600,
+      "total_incidents": 4578,
+      "crime_rate_per_10k": 73.8,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Pietermaritzburg",
+          "type": "Primary",
+          "tel": "+27 33 355 6500",
+          "address": "Church St, PMB, 3201"
+        },
+        {
+          "name": "Edendale",
+          "type": "Secondary",
+          "tel": "+27 33 392 2600",
+          "address": "Edendale, 3216"
+        },
+        {
+          "name": "Northdale",
+          "type": "Tertiary",
+          "tel": "+27 33 387 3900",
+          "address": "Northdale, 3201"
+        }
+      ],
+      "suburbs": [
+        "pietermaritzburg",
+        "pmb",
+        "edendale",
+        "northdale",
+        "plessislaer",
+        "imbali",
+        "ashdown",
+        "clarendon",
+        "pelham",
+        "hayfields",
+        "prestbury",
+        "woodlands pmb",
+        "scottsville"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 636,
+          "yoy": 0.02
+        },
+        {
+          "name": "Business Burglary",
+          "count": 453,
+          "yoy": 0.1
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 395,
+          "yoy": -0.17
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 677,
+          "yoy": -0.08
+        },
+        {
+          "name": "Common Assault",
+          "count": 639,
+          "yoy": 0.06
+        },
+        {
+          "name": "Drug-Related",
+          "count": 417,
+          "yoy": 0.15
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 328,
+          "yoy": -0.09
+        },
+        {
+          "name": "Common Robbery",
+          "count": 453,
+          "yoy": -0.04
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 279,
+          "yoy": 0.21
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 102,
+          "yoy": 0.19
+        },
+        {
+          "name": "Murder",
+          "count": 120,
+          "yoy": -0.12
+        },
+        {
+          "name": "Carjacking",
+          "count": 79,
+          "yoy": -0.1
+        }
+      ],
+      "monthly": [
+        342,
+        319,
+        344,
+        433,
+        408,
+        423,
+        402,
+        373,
+        399,
+        354,
+        348,
+        322
+      ],
+      "trend": [
+        5097,
+        4779,
+        4781,
+        5122,
+        4578
+      ]
+    },
+    {
+      "id": "newcastle",
+      "name": "Newcastle",
+      "province": "KwaZulu-Natal",
+      "risk_score": 58,
+      "risk_label": "ELEVATED",
+      "population": 230000,
+      "area_km2": 2600,
+      "total_incidents": 3453,
+      "crime_rate_per_10k": 150.1,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Newcastle",
+          "type": "Primary",
+          "tel": "+27 34 328 8500",
+          "address": "Allen St, Newcastle, 2940"
+        },
+        {
+          "name": "Madadeni",
+          "type": "Secondary",
+          "tel": "+27 34 315 8900",
+          "address": "Madadeni, 2951"
+        },
+        {
+          "name": "Osizweni",
+          "type": "Tertiary",
+          "tel": "+27 34 317 7900",
+          "address": "Osizweni, 2952"
+        }
+      ],
+      "suburbs": [
+        "newcastle",
+        "madadeni",
+        "osizweni",
+        "amajuba",
+        "ingagane",
+        "blaaubosch",
+        "lennoxton",
+        "newcastle north",
+        "ncandu park"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 453,
+          "yoy": 0.19
+        },
+        {
+          "name": "Business Burglary",
+          "count": 305,
+          "yoy": 0.02
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 346,
+          "yoy": -0.15
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 415,
+          "yoy": -0.01
+        },
+        {
+          "name": "Common Assault",
+          "count": 521,
+          "yoy": 0.03
+        },
+        {
+          "name": "Drug-Related",
+          "count": 384,
+          "yoy": -0.15
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 249,
+          "yoy": 0.08
+        },
+        {
+          "name": "Common Robbery",
+          "count": 280,
+          "yoy": -0.06
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 256,
+          "yoy": 0.06
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 90,
+          "yoy": 0.25
+        },
+        {
+          "name": "Murder",
+          "count": 84,
+          "yoy": 0.02
+        },
+        {
+          "name": "Carjacking",
+          "count": 70,
+          "yoy": -0.14
+        }
+      ],
+      "monthly": [
+        260,
+        284,
+        296,
+        325,
+        339,
+        312,
+        321,
+        292,
+        278,
+        263,
+        246,
+        224
+      ],
+      "trend": [
+        3440,
+        3371,
+        3183,
+        3399,
+        3453
+      ]
+    },
+    {
+      "id": "richard's_bay",
+      "name": "Richards Bay",
+      "province": "KwaZulu-Natal",
+      "risk_score": 50,
+      "risk_label": "ELEVATED",
+      "population": 320000,
+      "area_km2": 4000,
+      "total_incidents": 2799,
+      "crime_rate_per_10k": 87.5,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "Richards Bay",
+          "type": "Primary",
+          "tel": "+27 35 789 1070",
+          "address": "Hibberd Dr, Richards Bay, 3900"
+        },
+        {
+          "name": "Empangeni",
+          "type": "Secondary",
+          "tel": "+27 35 772 3000",
+          "address": "Commercial Rd, Empangeni, 3880"
+        },
+        {
+          "name": "Eshowe",
+          "type": "Tertiary",
+          "tel": "+27 35 474 4750",
+          "address": "Main St, Eshowe, 3815"
+        }
+      ],
+      "suburbs": [
+        "richards bay",
+        "empangeni",
+        "eshowe",
+        "nkandla",
+        "mtunzini",
+        "gingindlovu",
+        "meerensee",
+        "arboretum",
+        "alton",
+        "brackenham"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 362,
+          "yoy": -0.14
+        },
+        {
+          "name": "Business Burglary",
+          "count": 232,
+          "yoy": 0.14
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 288,
+          "yoy": 0.06
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 338,
+          "yoy": 0.06
+        },
+        {
+          "name": "Common Assault",
+          "count": 344,
+          "yoy": -0.13
+        },
+        {
+          "name": "Drug-Related",
+          "count": 252,
+          "yoy": 0.11
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 266,
+          "yoy": 0.19
+        },
+        {
+          "name": "Common Robbery",
+          "count": 299,
+          "yoy": 0.24
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 220,
+          "yoy": -0.03
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 84,
+          "yoy": -0.09
+        },
+        {
+          "name": "Murder",
+          "count": 62,
+          "yoy": -0.08
+        },
+        {
+          "name": "Carjacking",
+          "count": 52,
+          "yoy": 0.18
+        }
+      ],
+      "monthly": [
+        197,
+        227,
+        236,
+        266,
+        281,
+        293,
+        280,
+        256,
+        239,
+        195,
+        220,
+        211
+      ],
+      "trend": [
+        2408,
+        2486,
+        2410,
+        2349,
+        2799
+      ]
+    },
+    {
+      "id": "east_london",
+      "name": "East London",
+      "province": "Eastern Cape",
+      "risk_score": 65,
+      "risk_label": "HIGH RISK",
+      "population": 500000,
+      "area_km2": 4300,
+      "total_incidents": 4615,
+      "crime_rate_per_10k": 92.3,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "East London",
+          "type": "Primary",
+          "tel": "+27 43 705 5000",
+          "address": "Oxford St, East London, 5200"
+        },
+        {
+          "name": "Mdantsane",
+          "type": "Secondary",
+          "tel": "+27 43 761 4800",
+          "address": "Mdantsane, 5219"
+        },
+        {
+          "name": "King William's Town",
+          "type": "Tertiary",
+          "tel": "+27 43 604 3400",
+          "address": "KWT, 5600"
+        }
+      ],
+      "suburbs": [
+        "east london",
+        "mdantsane",
+        "king william's town",
+        "kwt",
+        "buffalo city",
+        "cambridge",
+        "gonubie",
+        "beacon bay",
+        "berea east london",
+        "southernwood",
+        "quigney",
+        "selborne"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 626,
+          "yoy": 0.06
+        },
+        {
+          "name": "Business Burglary",
+          "count": 456,
+          "yoy": -0.12
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 391,
+          "yoy": -0.17
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 656,
+          "yoy": -0.09
+        },
+        {
+          "name": "Common Assault",
+          "count": 688,
+          "yoy": -0.03
+        },
+        {
+          "name": "Drug-Related",
+          "count": 451,
+          "yoy": 0.13
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 381,
+          "yoy": 0.06
+        },
+        {
+          "name": "Common Robbery",
+          "count": 349,
+          "yoy": -0.16
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 274,
+          "yoy": 0.09
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 123,
+          "yoy": -0.06
+        },
+        {
+          "name": "Murder",
+          "count": 137,
+          "yoy": 0.03
+        },
+        {
+          "name": "Carjacking",
+          "count": 83,
+          "yoy": -0.06
+        }
+      ],
+      "monthly": [
+        351,
+        328,
+        379,
+        395,
+        450,
+        441,
+        449,
+        375,
+        376,
+        362,
+        301,
+        313
+      ],
+      "trend": [
+        3845,
+        3694,
+        3593,
+        3310,
+        4615
+      ]
+    },
+    {
+      "id": "port_elizabeth",
+      "name": "Gqeberha",
+      "province": "Eastern Cape",
+      "risk_score": 68,
+      "risk_label": "HIGH RISK",
+      "population": 1200000,
+      "area_km2": 1800,
+      "total_incidents": 5013,
+      "crime_rate_per_10k": 41.8,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "North End",
+          "type": "Primary",
+          "tel": "+27 41 391 2000",
+          "address": "North End, PE, 6001"
+        },
+        {
+          "name": "Motherwell",
+          "type": "Secondary",
+          "tel": "+27 41 996 6900",
+          "address": "Motherwell, 6211"
+        },
+        {
+          "name": "Gelvandale",
+          "type": "Tertiary",
+          "tel": "+27 41 403 6600",
+          "address": "Gelvandale, 6020"
+        }
+      ],
+      "suburbs": [
+        "port elizabeth",
+        "pe",
+        "gqeberha",
+        "motherwell",
+        "north end",
+        "central pe",
+        "new brighton",
+        "kwazakhele",
+        "gelvandale",
+        "walmer",
+        "mill park",
+        "summerstrand",
+        "humewood",
+        "mount croix"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 598,
+          "yoy": -0.02
+        },
+        {
+          "name": "Business Burglary",
+          "count": 541,
+          "yoy": 0.04
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 448,
+          "yoy": 0.17
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 622,
+          "yoy": 0.19
+        },
+        {
+          "name": "Common Assault",
+          "count": 659,
+          "yoy": -0.17
+        },
+        {
+          "name": "Drug-Related",
+          "count": 631,
+          "yoy": 0.19
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 391,
+          "yoy": 0.07
+        },
+        {
+          "name": "Common Robbery",
+          "count": 460,
+          "yoy": -0.0
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 293,
+          "yoy": -0.17
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 120,
+          "yoy": 0.16
+        },
+        {
+          "name": "Murder",
+          "count": 147,
+          "yoy": 0.18
+        },
+        {
+          "name": "Carjacking",
+          "count": 103,
+          "yoy": -0.14
+        }
+      ],
+      "monthly": [
+        388,
+        366,
+        425,
+        451,
+        462,
+        462,
+        456,
+        434,
+        390,
+        387,
+        335,
+        355
+      ],
+      "trend": [
+        5686,
+        5893,
+        6194,
+        6506,
+        5013
+      ]
+    },
+    {
+      "id": "mthatha",
+      "name": "Mthatha",
+      "province": "Eastern Cape",
+      "risk_score": 72,
+      "risk_label": "HIGH RISK",
+      "population": 500000,
+      "area_km2": 8200,
+      "total_incidents": 4774,
+      "crime_rate_per_10k": 95.5,
+      "response_min": 22,
+      "stations": [
+        {
+          "name": "Mthatha",
+          "type": "Primary",
+          "tel": "+27 47 502 4900",
+          "address": "Owen St, Mthatha, 5099"
+        },
+        {
+          "name": "Ngangelizwe",
+          "type": "Secondary",
+          "tel": "+27 47 531 3700",
+          "address": "Ngangelizwe, 5099"
+        },
+        {
+          "name": "Idutywa",
+          "type": "Tertiary",
+          "tel": "+27 47 489 0010",
+          "address": "Idutywa, 5000"
+        }
+      ],
+      "suburbs": [
+        "mthatha",
+        "umtata",
+        "ngangelizwe",
+        "corana",
+        "ncambedlana",
+        "idutywa",
+        "coffee bay",
+        "qumbu",
+        "tsolo",
+        "libode",
+        "mqanduli"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 525,
+          "yoy": -0.1
+        },
+        {
+          "name": "Business Burglary",
+          "count": 404,
+          "yoy": 0.15
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 410,
+          "yoy": -0.1
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 742,
+          "yoy": 0.03
+        },
+        {
+          "name": "Common Assault",
+          "count": 843,
+          "yoy": 0.15
+        },
+        {
+          "name": "Drug-Related",
+          "count": 385,
+          "yoy": 0.22
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 374,
+          "yoy": 0.09
+        },
+        {
+          "name": "Common Robbery",
+          "count": 432,
+          "yoy": 0.19
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 330,
+          "yoy": -0.12
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 106,
+          "yoy": 0.01
+        },
+        {
+          "name": "Murder",
+          "count": 147,
+          "yoy": -0.06
+        },
+        {
+          "name": "Carjacking",
+          "count": 76,
+          "yoy": 0.04
+        }
+      ],
+      "monthly": [
+        333,
+        364,
+        362,
+        456,
+        411,
+        490,
+        481,
+        437,
+        398,
+        365,
+        349,
+        357
+      ],
+      "trend": [
+        5485,
+        5757,
+        5897,
+        5728,
+        4774
+      ]
+    },
+    {
+      "id": "grahamstown",
+      "name": "Makhanda",
+      "province": "Eastern Cape",
+      "risk_score": 55,
+      "risk_label": "ELEVATED",
+      "population": 80000,
+      "area_km2": 4500,
+      "total_incidents": 2567,
+      "crime_rate_per_10k": 320.9,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Makhanda",
+          "type": "Primary",
+          "tel": "+27 46 603 8700",
+          "address": "African St, Makhanda, 6140"
+        },
+        {
+          "name": "Fort Beaufort",
+          "type": "Secondary",
+          "tel": "+27 46 645 1606",
+          "address": "Fort Beaufort, 5720"
+        },
+        {
+          "name": "Bathurst",
+          "type": "Tertiary",
+          "tel": "+27 46 625 0100",
+          "address": "Bathurst, 6166"
+        }
+      ],
+      "suburbs": [
+        "makhanda",
+        "grahamstown",
+        "joza",
+        "fingo village",
+        "tantyi",
+        "rhini",
+        "fort beaufort",
+        "alice",
+        "bathurst",
+        "salem"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 295,
+          "yoy": -0.15
+        },
+        {
+          "name": "Business Burglary",
+          "count": 203,
+          "yoy": 0.21
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 251,
+          "yoy": 0.13
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 330,
+          "yoy": -0.11
+        },
+        {
+          "name": "Common Assault",
+          "count": 366,
+          "yoy": 0.01
+        },
+        {
+          "name": "Drug-Related",
+          "count": 226,
+          "yoy": 0.04
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 222,
+          "yoy": -0.02
+        },
+        {
+          "name": "Common Robbery",
+          "count": 262,
+          "yoy": -0.0
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 204,
+          "yoy": 0.08
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 89,
+          "yoy": 0.1
+        },
+        {
+          "name": "Murder",
+          "count": 57,
+          "yoy": -0.14
+        },
+        {
+          "name": "Carjacking",
+          "count": 62,
+          "yoy": -0.06
+        }
+      ],
+      "monthly": [
+        194,
+        204,
+        231,
+        247,
+        233,
+        250,
+        224,
+        223,
+        233,
+        205,
+        182,
+        185
+      ],
+      "trend": [
+        2924,
+        2867,
+        3000,
+        3151,
+        2567
+      ]
+    },
+    {
+      "id": "bloemfontein",
+      "name": "Bloemfontein",
+      "province": "Free State",
+      "risk_score": 62,
+      "risk_label": "ELEVATED",
+      "population": 750000,
+      "area_km2": 7300,
+      "total_incidents": 4093,
+      "crime_rate_per_10k": 54.6,
+      "response_min": 16,
+      "stations": [
+        {
+          "name": "Bloemfontein",
+          "type": "Primary",
+          "tel": "+27 51 411 2200",
+          "address": "Aliwal St, Bloemfontein, 9300"
+        },
+        {
+          "name": "Botshabelo",
+          "type": "Secondary",
+          "tel": "+27 51 534 1500",
+          "address": "Botshabelo, 9781"
+        },
+        {
+          "name": "Thaba Nchu",
+          "type": "Tertiary",
+          "tel": "+27 51 873 0001",
+          "address": "Thaba Nchu, 9780"
+        }
+      ],
+      "suburbs": [
+        "bloemfontein",
+        "mangaung",
+        "botshabelo",
+        "thaba nchu",
+        "brandfort",
+        "bfn",
+        "westdene",
+        "langenhovenpark",
+        "universitas",
+        "willows",
+        "heuwelsig",
+        "arboretum bloemfontein",
+        "fauna"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 593,
+          "yoy": 0.14
+        },
+        {
+          "name": "Business Burglary",
+          "count": 427,
+          "yoy": 0.05
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 375,
+          "yoy": 0.0
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 517,
+          "yoy": -0.02
+        },
+        {
+          "name": "Common Assault",
+          "count": 528,
+          "yoy": -0.09
+        },
+        {
+          "name": "Drug-Related",
+          "count": 459,
+          "yoy": 0.03
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 309,
+          "yoy": -0.12
+        },
+        {
+          "name": "Common Robbery",
+          "count": 333,
+          "yoy": 0.18
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 257,
+          "yoy": 0.15
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 123,
+          "yoy": 0.2
+        },
+        {
+          "name": "Murder",
+          "count": 85,
+          "yoy": -0.04
+        },
+        {
+          "name": "Carjacking",
+          "count": 87,
+          "yoy": -0.12
+        }
+      ],
+      "monthly": [
+        289,
+        294,
+        363,
+        386,
+        409,
+        366,
+        380,
+        360,
+        353,
+        298,
+        293,
+        277
+      ],
+      "trend": [
+        4463,
+        4487,
+        4350,
+        4565,
+        4093
+      ]
+    },
+    {
+      "id": "welkom",
+      "name": "Welkom",
+      "province": "Free State",
+      "risk_score": 60,
+      "risk_label": "ELEVATED",
+      "population": 350000,
+      "area_km2": 2200,
+      "total_incidents": 4064,
+      "crime_rate_per_10k": 116.1,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Welkom",
+          "type": "Primary",
+          "tel": "+27 57 916 5600",
+          "address": "Stateway, Welkom, 9459"
+        },
+        {
+          "name": "Thabong",
+          "type": "Secondary",
+          "tel": "+27 57 353 6900",
+          "address": "Thabong, 9459"
+        },
+        {
+          "name": "Virginia",
+          "type": "Tertiary",
+          "tel": "+27 57 212 1000",
+          "address": "Virginia, 9430"
+        }
+      ],
+      "suburbs": [
+        "welkom",
+        "thabong",
+        "virginia",
+        "odendaalsrus",
+        "hennenman",
+        "ventersburg",
+        "allanridge",
+        "bronville",
+        "kutlwanong"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 541,
+          "yoy": -0.02
+        },
+        {
+          "name": "Business Burglary",
+          "count": 418,
+          "yoy": 0.24
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 324,
+          "yoy": -0.06
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 474,
+          "yoy": 0.05
+        },
+        {
+          "name": "Common Assault",
+          "count": 654,
+          "yoy": 0.17
+        },
+        {
+          "name": "Drug-Related",
+          "count": 447,
+          "yoy": -0.12
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 284,
+          "yoy": 0.1
+        },
+        {
+          "name": "Common Robbery",
+          "count": 387,
+          "yoy": 0.06
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 234,
+          "yoy": 0.18
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 113,
+          "yoy": -0.06
+        },
+        {
+          "name": "Murder",
+          "count": 106,
+          "yoy": -0.06
+        },
+        {
+          "name": "Carjacking",
+          "count": 82,
+          "yoy": -0.12
+        }
+      ],
+      "monthly": [
+        290,
+        341,
+        319,
+        360,
+        371,
+        352,
+        348,
+        364,
+        320,
+        344,
+        287,
+        260
+      ],
+      "trend": [
+        5022,
+        5143,
+        5383,
+        5071,
+        4064
+      ]
+    },
+    {
+      "id": "nelspruit",
+      "name": "Mbombela",
+      "province": "Mpumalanga",
+      "risk_score": 55,
+      "risk_label": "ELEVATED",
+      "population": 590000,
+      "area_km2": 3000,
+      "total_incidents": 3082,
+      "crime_rate_per_10k": 52.2,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "Nelspruit",
+          "type": "Primary",
+          "tel": "+27 13 759 1000",
+          "address": "Bester St, Nelspruit, 1200"
+        },
+        {
+          "name": "KaMhlushwa",
+          "type": "Secondary",
+          "tel": "+27 13 796 1000",
+          "address": "KaMhlushwa, 1343"
+        },
+        {
+          "name": "White River",
+          "type": "Tertiary",
+          "tel": "+27 13 750 5000",
+          "address": "White River, 1240"
+        }
+      ],
+      "suburbs": [
+        "nelspruit",
+        "mbombela",
+        "white river",
+        "hazyview",
+        "kamhlushwa",
+        "matsulu",
+        "west acres",
+        "steiltes",
+        "sonheuwel",
+        "witrivier",
+        "barberton",
+        "kamagugu"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 447,
+          "yoy": 0.12
+        },
+        {
+          "name": "Business Burglary",
+          "count": 263,
+          "yoy": 0.12
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 291,
+          "yoy": -0.18
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 323,
+          "yoy": -0.07
+        },
+        {
+          "name": "Common Assault",
+          "count": 447,
+          "yoy": 0.06
+        },
+        {
+          "name": "Drug-Related",
+          "count": 316,
+          "yoy": 0.05
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 245,
+          "yoy": -0.06
+        },
+        {
+          "name": "Common Robbery",
+          "count": 295,
+          "yoy": -0.16
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 234,
+          "yoy": 0.16
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 91,
+          "yoy": -0.13
+        },
+        {
+          "name": "Murder",
+          "count": 74,
+          "yoy": 0.08
+        },
+        {
+          "name": "Carjacking",
+          "count": 56,
+          "yoy": 0.04
+        }
+      ],
+      "monthly": [
+        211,
+        220,
+        253,
+        282,
+        275,
+        290,
+        299,
+        253,
+        281,
+        217,
+        224,
+        218
+      ],
+      "trend": [
+        3715,
+        3650,
+        3633,
+        3712,
+        3082
+      ]
+    },
+    {
+      "id": "witbank",
+      "name": "Emalahleni",
+      "province": "Mpumalanga",
+      "risk_score": 65,
+      "risk_label": "HIGH RISK",
+      "population": 450000,
+      "area_km2": 2700,
+      "total_incidents": 4411,
+      "crime_rate_per_10k": 98.0,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Witbank",
+          "type": "Primary",
+          "tel": "+27 13 653 2800",
+          "address": "Beatty Ave, Witbank, 1035"
+        },
+        {
+          "name": "KwaGuqa",
+          "type": "Secondary",
+          "tel": "+27 13 655 0700",
+          "address": "KwaGuqa, 1035"
+        },
+        {
+          "name": "Middelburg",
+          "type": "Tertiary",
+          "tel": "+27 13 249 3700",
+          "address": "Middelburg, 1050"
+        }
+      ],
+      "suburbs": [
+        "witbank",
+        "emalahleni",
+        "kwaguqa",
+        "middelburg mp",
+        "duvha park",
+        "tasbet park",
+        "del judor",
+        "ferrobank",
+        "lynnville",
+        "clewer"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 511,
+          "yoy": -0.17
+        },
+        {
+          "name": "Business Burglary",
+          "count": 499,
+          "yoy": -0.03
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 393,
+          "yoy": 0.09
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 646,
+          "yoy": 0.14
+        },
+        {
+          "name": "Common Assault",
+          "count": 611,
+          "yoy": -0.16
+        },
+        {
+          "name": "Drug-Related",
+          "count": 466,
+          "yoy": 0.17
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 311,
+          "yoy": 0.16
+        },
+        {
+          "name": "Common Robbery",
+          "count": 386,
+          "yoy": 0.12
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 310,
+          "yoy": 0.17
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 99,
+          "yoy": 0.15
+        },
+        {
+          "name": "Murder",
+          "count": 108,
+          "yoy": -0.05
+        },
+        {
+          "name": "Carjacking",
+          "count": 71,
+          "yoy": -0.09
+        }
+      ],
+      "monthly": [
+        290,
+        369,
+        368,
+        433,
+        418,
+        401,
+        436,
+        370,
+        357,
+        359,
+        343,
+        301
+      ],
+      "trend": [
+        3669,
+        3897,
+        4049,
+        4305,
+        4411
+      ]
+    },
+    {
+      "id": "polokwane",
+      "name": "Polokwane",
+      "province": "Limpopo",
+      "risk_score": 58,
+      "risk_label": "ELEVATED",
+      "population": 620000,
+      "area_km2": 6960,
+      "total_incidents": 3472,
+      "crime_rate_per_10k": 56.0,
+      "response_min": 18,
+      "stations": [
+        {
+          "name": "Polokwane",
+          "type": "Primary",
+          "tel": "+27 15 293 5000",
+          "address": "Landdros Mare St, Polokwane, 0700"
+        },
+        {
+          "name": "Seshego",
+          "type": "Secondary",
+          "tel": "+27 15 223 3000",
+          "address": "Seshego, 0742"
+        },
+        {
+          "name": "Mankweng",
+          "type": "Tertiary",
+          "tel": "+27 15 267 9200",
+          "address": "Mankweng, 0727"
+        }
+      ],
+      "suburbs": [
+        "polokwane",
+        "pietersburg",
+        "seshego",
+        "mankweng",
+        "flora park",
+        "bendor",
+        "welgelegen",
+        "ivy park",
+        "university of limpopo",
+        "edupark"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 489,
+          "yoy": 0.03
+        },
+        {
+          "name": "Business Burglary",
+          "count": 350,
+          "yoy": 0.22
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 313,
+          "yoy": 0.16
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 458,
+          "yoy": -0.15
+        },
+        {
+          "name": "Common Assault",
+          "count": 482,
+          "yoy": 0.17
+        },
+        {
+          "name": "Drug-Related",
+          "count": 316,
+          "yoy": -0.04
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 255,
+          "yoy": 0.1
+        },
+        {
+          "name": "Common Robbery",
+          "count": 312,
+          "yoy": 0.08
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 247,
+          "yoy": 0.12
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 93,
+          "yoy": -0.16
+        },
+        {
+          "name": "Murder",
+          "count": 77,
+          "yoy": -0.03
+        },
+        {
+          "name": "Carjacking",
+          "count": 80,
+          "yoy": -0.06
+        }
+      ],
+      "monthly": [
+        275,
+        291,
+        264,
+        319,
+        317,
+        352,
+        338,
+        339,
+        268,
+        273,
+        265,
+        223
+      ],
+      "trend": [
+        2998,
+        2934,
+        2879,
+        2910,
+        3472
+      ]
+    },
+    {
+      "id": "tzaneen",
+      "name": "Tzaneen",
+      "province": "Limpopo",
+      "risk_score": 50,
+      "risk_label": "ELEVATED",
+      "population": 180000,
+      "area_km2": 3200,
+      "total_incidents": 2429,
+      "crime_rate_per_10k": 134.9,
+      "response_min": 22,
+      "stations": [
+        {
+          "name": "Tzaneen",
+          "type": "Primary",
+          "tel": "+27 15 307 4000",
+          "address": "Danie Joubert St, Tzaneen, 0850"
+        },
+        {
+          "name": "Giyani",
+          "type": "Secondary",
+          "tel": "+27 15 812 0100",
+          "address": "Giyani, 0826"
+        },
+        {
+          "name": "Phalaborwa",
+          "type": "Tertiary",
+          "tel": "+27 15 780 3300",
+          "address": "Phalaborwa, 1390"
+        }
+      ],
+      "suburbs": [
+        "tzaneen",
+        "giyani",
+        "phalaborwa",
+        "thohoyandou",
+        "venda",
+        "louis trichardt",
+        "makhado",
+        "messina",
+        "musina",
+        "bela-bela",
+        "warmbaths"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 326,
+          "yoy": 0.23
+        },
+        {
+          "name": "Business Burglary",
+          "count": 208,
+          "yoy": 0.15
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 253,
+          "yoy": 0.05
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 270,
+          "yoy": 0.1
+        },
+        {
+          "name": "Common Assault",
+          "count": 286,
+          "yoy": -0.13
+        },
+        {
+          "name": "Drug-Related",
+          "count": 232,
+          "yoy": 0.03
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 224,
+          "yoy": 0.06
+        },
+        {
+          "name": "Common Robbery",
+          "count": 244,
+          "yoy": -0.07
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 198,
+          "yoy": 0.25
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 72,
+          "yoy": 0.21
+        },
+        {
+          "name": "Murder",
+          "count": 55,
+          "yoy": -0.13
+        },
+        {
+          "name": "Carjacking",
+          "count": 61,
+          "yoy": 0.01
+        }
+      ],
+      "monthly": [
+        190,
+        185,
+        185,
+        225,
+        244,
+        224,
+        221,
+        198,
+        204,
+        201,
+        188,
+        179
+      ],
+      "trend": [
+        2906,
+        3043,
+        3047,
+        2863,
+        2429
+      ]
+    },
+    {
+      "id": "kimberley",
+      "name": "Kimberley",
+      "province": "Northern Cape",
+      "risk_score": 60,
+      "risk_label": "ELEVATED",
+      "population": 310000,
+      "area_km2": 5100,
+      "total_incidents": 3765,
+      "crime_rate_per_10k": 121.5,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Kimberley",
+          "type": "Primary",
+          "tel": "+27 53 838 5600",
+          "address": "Quinn St, Kimberley, 8301"
+        },
+        {
+          "name": "Galeshewe",
+          "type": "Secondary",
+          "tel": "+27 53 833 1200",
+          "address": "Galeshewe, 8345"
+        },
+        {
+          "name": "Warrenton",
+          "type": "Tertiary",
+          "tel": "+27 53 491 0600",
+          "address": "Warrenton, 8530"
+        }
+      ],
+      "suburbs": [
+        "kimberley",
+        "galeshewe",
+        "sol plaatje",
+        "belgravia kimberley",
+        "erle",
+        "beaconsfield",
+        "de beers",
+        "warrenton",
+        "barkly west",
+        "jan kempdorp"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 438,
+          "yoy": 0.16
+        },
+        {
+          "name": "Business Burglary",
+          "count": 316,
+          "yoy": 0.06
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 315,
+          "yoy": 0.17
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 499,
+          "yoy": 0.08
+        },
+        {
+          "name": "Common Assault",
+          "count": 466,
+          "yoy": -0.05
+        },
+        {
+          "name": "Drug-Related",
+          "count": 471,
+          "yoy": 0.13
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 309,
+          "yoy": 0.15
+        },
+        {
+          "name": "Common Robbery",
+          "count": 382,
+          "yoy": -0.15
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 304,
+          "yoy": 0.1
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 100,
+          "yoy": 0.11
+        },
+        {
+          "name": "Murder",
+          "count": 85,
+          "yoy": 0.2
+        },
+        {
+          "name": "Carjacking",
+          "count": 80,
+          "yoy": 0.1
+        }
+      ],
+      "monthly": [
+        255,
+        317,
+        309,
+        364,
+        322,
+        333,
+        329,
+        314,
+        302,
+        302,
+        264,
+        290
+      ],
+      "trend": [
+        4601,
+        4417,
+        4512,
+        4549,
+        3765
+      ]
+    },
+    {
+      "id": "rustenburg",
+      "name": "Rustenburg",
+      "province": "North West",
+      "risk_score": 62,
+      "risk_label": "ELEVATED",
+      "population": 650000,
+      "area_km2": 3500,
+      "total_incidents": 4083,
+      "crime_rate_per_10k": 62.8,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Rustenburg",
+          "type": "Primary",
+          "tel": "+27 14 597 0800",
+          "address": "Fatima Bhayat St, Rustenburg, 0299"
+        },
+        {
+          "name": "Tlhabane",
+          "type": "Secondary",
+          "tel": "+27 14 597 9600",
+          "address": "Tlhabane, 0309"
+        },
+        {
+          "name": "Phokeng",
+          "type": "Tertiary",
+          "tel": "+27 14 574 2000",
+          "address": "Phokeng, 0335"
+        }
+      ],
+      "suburbs": [
+        "rustenburg",
+        "tlhabane",
+        "phokeng",
+        "brits",
+        "marikana",
+        "sun city",
+        "hartbeespoort",
+        "mooinooi",
+        "boons",
+        "waterfall mall",
+        "industrial rustenburg"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 496,
+          "yoy": 0.05
+        },
+        {
+          "name": "Business Burglary",
+          "count": 396,
+          "yoy": -0.11
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 398,
+          "yoy": -0.11
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 553,
+          "yoy": 0.13
+        },
+        {
+          "name": "Common Assault",
+          "count": 590,
+          "yoy": 0.18
+        },
+        {
+          "name": "Drug-Related",
+          "count": 403,
+          "yoy": 0.17
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 283,
+          "yoy": -0.16
+        },
+        {
+          "name": "Common Robbery",
+          "count": 389,
+          "yoy": 0.07
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 298,
+          "yoy": 0.15
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 107,
+          "yoy": 0.09
+        },
+        {
+          "name": "Murder",
+          "count": 96,
+          "yoy": 0.09
+        },
+        {
+          "name": "Carjacking",
+          "count": 74,
+          "yoy": 0.23
+        }
+      ],
+      "monthly": [
+        295,
+        333,
+        352,
+        350,
+        351,
+        356,
+        379,
+        364,
+        320,
+        321,
+        284,
+        301
+      ],
+      "trend": [
+        4723,
+        5082,
+        4782,
+        4683,
+        4083
+      ]
+    },
+    {
+      "id": "klerksdorp",
+      "name": "Klerksdorp",
+      "province": "North West",
+      "risk_score": 58,
+      "risk_label": "ELEVATED",
+      "population": 400000,
+      "area_km2": 2800,
+      "total_incidents": 3214,
+      "crime_rate_per_10k": 80.4,
+      "response_min": 20,
+      "stations": [
+        {
+          "name": "Klerksdorp",
+          "type": "Primary",
+          "tel": "+27 18 487 0500",
+          "address": "Boom St, Klerksdorp, 2570"
+        },
+        {
+          "name": "Jouberton",
+          "type": "Secondary",
+          "tel": "+27 18 487 0900",
+          "address": "Jouberton, 2571"
+        },
+        {
+          "name": "Potchefstroom",
+          "type": "Tertiary",
+          "tel": "+27 18 299 5000",
+          "address": "Potchefstroom, 2520"
+        }
+      ],
+      "suburbs": [
+        "klerksdorp",
+        "jouberton",
+        "potchefstroom",
+        "potch",
+        "stilfontein",
+        "orkney",
+        "hartebeesfontein",
+        "kanana",
+        "alabama",
+        "model park",
+        "freemanville"
+      ],
+      "categories": [
+        {
+          "name": "Residential Burglary",
+          "count": 395,
+          "yoy": 0.02
+        },
+        {
+          "name": "Business Burglary",
+          "count": 282,
+          "yoy": -0.07
+        },
+        {
+          "name": "Vehicle Theft",
+          "count": 267,
+          "yoy": -0.06
+        },
+        {
+          "name": "Robbery with Aggravation",
+          "count": 403,
+          "yoy": 0.08
+        },
+        {
+          "name": "Common Assault",
+          "count": 421,
+          "yoy": 0.19
+        },
+        {
+          "name": "Drug-Related",
+          "count": 307,
+          "yoy": -0.04
+        },
+        {
+          "name": "Theft from Vehicle",
+          "count": 291,
+          "yoy": -0.05
+        },
+        {
+          "name": "Common Robbery",
+          "count": 348,
+          "yoy": 0.03
+        },
+        {
+          "name": "Malicious Damage",
+          "count": 248,
+          "yoy": 0.03
+        },
+        {
+          "name": "Sexual Offences",
+          "count": 89,
+          "yoy": -0.17
+        },
+        {
+          "name": "Murder",
+          "count": 86,
+          "yoy": 0.04
+        },
+        {
+          "name": "Carjacking",
+          "count": 77,
+          "yoy": -0.09
+        }
+      ],
+      "monthly": [
+        226,
+        225,
+        267,
+        309,
+        311,
+        306,
+        304,
+        307,
+        264,
+        266,
+        243,
+        239
+      ],
+      "trend": [
+        2993,
+        3026,
+        2879,
+        2903,
+        3214
+      ]
+    }
+  ]
+}

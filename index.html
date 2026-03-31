@@ -3,6 +3,650 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SafeZone Intelligence — Property Crime Risk, South Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#111827;--muted:#6B7280;--border:#E5E7EB;--bg:#F9FAFB;--danger:#DC2626;--warn:#D97706;--ok:#059669}
+html{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:#fff;scroll-behavior:smooth}h
+nav{display:flex;align-items:center;padding:0 2rem;height:60px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:50}
+.brand{font-size:.95rem;font-weight:700;letter-spacing:-.02em}.brand em{color:var(--danger);font-style:normal}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:.75rem}h
+.pill-nav{font-size:.72rem;font-family:'IBM Plex Mono',monospace;background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:.2rem .7rem;color:var(--muted)}
+.hero{max-width:720px;margin:0 auto;padding:5rem 2rem 3.5rem;text-align:center}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:2.6rem;font-weight:700;line-height:1.15;letter-spacing:-.03em;margin-bottom:1rem}
+.hero h1 em{font-style:normal;position:relative}
+.hero h1 em::after{content:'';display:block;position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--danger);border-radius:2px}
+.hero p{font-size:1.05rem;color:var(--muted);line-height:1.65;max-width:560px;margin:0 auto 2rem}
+.hero-badges{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.badge{font-size:.7rem;font-family:'IBM Plex Mono',monospace;background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:.2rem .75rem;color:var(--muted)}
+.search-card{max-width:640px;margin:0 auto 4rem;background:#fff;border:1.5px solid var(--border);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.03);padding:1.75rem}
+.search-label{font-size:.72rem;font-family:'IBM Plex Mono',monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem;display:block}
+.input-wrap{position:relative}
+.input-icon{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:1rem;pointer-events:none;color:var(--muted)}
+#addr-input{width:100%;padding:.8rem 1rem .8rem 2.5rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .15s;background:#fff}
+#addr-input:focus{border-color:var(--ink)}
+#addr-input::placeholder{color:var(--muted)}
+.autocomplete{position:absolute;top:100%;left:0;right:0;z-index:99;background:#fff;border:1px solid var(--border);border-top:none;border-radius:0 0 8px 8px;box-shadow:0 4px 12px rgba(0,0,0,.08);max-height:260px;overflow-y:auto;display:none}
+.autocomplete.open{display:block}
+.ac-item{padding:.6rem 1rem;font-size:.82rem;cursor:pointer;display:flex;align-items:center;gap:.6rem;border-bottom:1px solid var(--border)}
+.ac-item:last-child{border-bottom:none}.ac-item:hover,.ac-item.focused{background:var(--bg)}
+.ac-item .ac-name{font-weight:600;font-size:.82rem}.ac-item .ac-sub{font-size:.7rem;color:var(--muted)}
+.ac-item .ac-risk{margin-left:auto;font-size:.65rem;font-family:'IBM Plex Mono',monospace;padding:.15rem .45rem;border-radius:3px;font-weight:700;text-transform:uppercase}
+.ac-item .ac-risk.critical{background:#7F1D1D;color:#fff}.ac-item .ac-risk.high{background:var(--danger);color:#fff}
+.ac-item .ac-risk.elevated{background:var(--warn);color:#fff}.ac-item .ac-risk.moderate{background:#92400E;color:#fff}
+.ac-item .ac-risk.low{background:var(--ok);color:#fff}
+.btn-search{width:100%;margin-top:.9rem;padding:.75rem;background:var(--ink);color:#fff;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .15s}
+.btn-search:hover{background:#374151}.btn-search:disabled{background:var(--muted);cursor:not-allowed}
+.chip-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.chip-label{font-size:.7rem;font-family:'IBM Plex Mono',monospace;color:var(--muted);width:100%;margin-bottom:.1rem}
+.chip{font-size:.73rem;border:1px solid var(--border);border-radius:100px;padding:.25rem .75rem;cursor:pointer;background:#fff;font-family:inherit;color:var(--ink);transition:border-color .15s,background .15s;white-space:nowrap}
+.chip:hover{border-color:var(--ink);background:var(--bg)}
+#loading-state{display:none;max-width:640px;margin:0 auto 4rem;text-align:center;padding:2rem}
+.loading-steps{display:flex;flex-direction:column;gap:.6rem;align-items:center}
+.step{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .3s}
+.step-dot.active{background:var(--ink);animation:pulse .8s infinite}.step-dot.done{background:var(--ok)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+#picker-state{display:none;max-width:640px;margin:0 auto 4rem}
+.picker-header{font-size:.82rem;font-weight:600;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.picker-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.picker-card{border:1px solid var(--border);border-radius:8px;padding:.75rem;cursor:pointer;transition:border-color .15s;background:#fff;text-align:left;font-family:inherit;width:100%}
+.picker-card:hover{border-color:var(--ink)}
+.picker-card .pc-name{font-weight:600;font-size:.82rem}.picker-card .pc-prov{font-size:.7rem;color:var(--muted);margin-top:.1rem}
+.picker-card .pc-risk{display:inline-block;margin-top:.35rem;font-size:.62rem;font-family:'IBM Plex Mono',monospace;padding:.15rem .45rem;border-radius:3px;font-weight:700;text-transform:uppercase}
+.picker-card .pc-risk.critical{background:#7F1D1D;color:#fff}.picker-card .pc-risk.high{background:var(--danger);color:#fff}
+.picker-card .pc-risk.elevated{background:var(--warn);color:#fff}.picker-card .pc-risk.moderate{background:#92400E;color:#fff}
+.picker-card .pc-risk.low{background:var(--ok);color:#fff}
+#result-state{display:none;max-width:640px;margin:0 auto 4rem;border:1.5px solid var(--border);border-radius:12px;overflow:hidden}
+.result-addr{display:flex;align-items:flex-start;justify-content:space-between;padding:.85rem 1.25rem;border-bottom:1px solid var(--border);background:var(--bg)}
+.addr-text{font-size:.82rem;font-weight:600}.addr-station{font-size:.7rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:.15rem}
+.addr-meta{font-size:.68rem;color:var(--muted);margin-top:.1rem}
+.reset-btn{font-size:.75rem;color:var(--muted);cursor:pointer;background:none;border:none;font-family:inherit;text-decoration:underline;flex-shrink:0;margin-left:1rem}
+.risk-row{display:flex;align-items:center;gap:1rem;padding:1.25rem;border-bottom:1px solid var(--border)}
+.risk-score-big{font-family:'Libre Baskerville',serif;font-size:3rem;font-weight:700;line-height:1;min-width:70px;text-align:center}
+.risk-score-big.critical{color:#7F1D1D}.risk-score-big.high{color:var(--danger)}.risk-score-big.elevated{color:var(--warn)}.risk-score-big.moderate{color:#92400E}.risk-score-big.low{color:var(--ok)}
+.risk-detail{flex:1}
+.risk-label-tag{display:inline-block;font-size:.7rem;font-family:'IBM Plex Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.2rem .6rem;border-radius:4px;margin-bottom:.4rem}
+.risk-label-tag.critical{background:#7F1D1D;color:#fff}.risk-label-tag.high{background:var(--danger);color:#fff}
+.risk-label-tag.elevated{background:var(--warn);color:#fff}.risk-label-tag.moderate{background:#92400E;color:#fff}.risk-label-tag.low{background:var(--ok);color:#fff}
+.risk-bar-wrap{margin-bottom:.4rem}.risk-bar-track{height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.risk-bar-fill{height:100%;border-radius:3px;background:var(--danger);transition:width .6s .1s}
+.risk-bar-fill.warn{background:var(--warn)}.risk-bar-fill.ok{background:var(--ok)}
+.risk-desc{font-size:.75rem;color:var(--muted);line-height:1.5}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat-cell{padding:.85rem 1rem;border-right:1px solid var(--border)}
+.stat-cell:last-child{border-right:none}
+.stat-val{font-size:1.15rem;font-weight:700;font-family:'Libre Baskerville',serif;line-height:1}
+.stat-lbl{font-size:.65rem;color:var(--muted);margin-top:.2rem;line-height:1.3}
+/* top crimes mini table */
+.top-crimes{padding:1rem 1.25rem;border-bottom:1px solid var(--border)}
+.top-crimes-title{font-size:.65rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.65rem}
+.crime-bar-row{display:flex;align-items:center;gap:.65rem;margin-bottom:.45rem}
+.crime-bar-name{width:130px;font-size:.72rem;flex-shrink:0;color:var(--ink)}
+.crime-bar-track{flex:1;height:6px;background:var(--bg);border-radius:3px;overflow:hidden}
+.crime-bar-fill{height:100%;border-radius:3px;background:var(--ink)}
+.crime-bar-fill.danger{background:var(--danger)}.crime-bar-fill.warn{background:var(--warn)}
+.crime-bar-count{width:40px;text-align:right;font-size:.7rem;font-family:'IBM Plex Mono',monospace;color:var(--muted)}
+.yoy-badge{font-size:.62rem;font-family:'IBM Plex Mono',monospace;width:40px;text-align:right}
+.yoy-badge.up{color:var(--danger)}.yoy-badge.dn{color:var(--ok)}.yoy-badge.flat{color:var(--muted)}
+/* dl card */
+.dl-card{padding:1.25rem}
+.dl-card-inner{border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;align-items:center;gap:1rem}
+.dl-thumb{width:52px;height:68px;border:1px solid var(--border);border-radius:4px;background:linear-gradient(160deg,var(--bg),#fff);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.dl-info{flex:1}.dl-title{font-weight:700;font-size:.88rem;margin-bottom:.15rem}
+.dl-pills{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.5rem}
+.dl-pill{font-size:.65rem;font-family:'IBM Plex Mono',monospace;background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:.1rem .5rem;color:var(--muted)}
+.dl-actions{display:flex;align-items:center;gap:.6rem}
+.btn-dl{background:var(--ink);color:#fff;border:none;cursor:pointer;padding:.5rem 1.1rem;border-radius:6px;font-size:.8rem;font-weight:600;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem}
+.btn-dl:hover{background:#374151}
+/* geocode notice */
+.geocode-notice{font-size:.7rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:.75rem;text-align:center;display:none}
+/* stats band */
+.stats-band{border-top:1px solid var(--border);padding:3rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;text-align:center}
+.stat-item .s-val{font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700}
+.stat-item .s-lbl{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+/* browse section */
+.browse-section{max-width:900px;margin:0 auto;padding:0 2rem 4rem}
+.browse-section h2{font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;margin-bottom:.35rem}
+.browse-section .sub{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+.province-tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1rem}
+.prov-tab{font-size:.75rem;border:1px solid var(--border);border-radius:100px;padding:.3rem .8rem;cursor:pointer;background:#fff;font-family:inherit;color:var(--muted);transition:all .15s}
+.prov-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.browse-search{width:100%;max-width:360px;padding:.5rem .85rem;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.82rem;outline:none;margin-bottom:1rem}
+.browse-search:focus{border-color:var(--ink)}
+.precinct-browse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.5rem}
+.pb-card{border:1px solid var(--border);border-radius:8px;padding:.7rem;cursor:pointer;transition:border-color .15s;background:#fff;text-align:left;font-family:inherit;width:100%}
+.pb-card:hover{border-color:var(--ink)}
+.pb-card .pb-name{font-weight:600;font-size:.78rem}.pb-card .pb-prov{font-size:.65rem;color:var(--muted);margin:.08rem 0 .25rem}
+.pb-card .pb-score{display:inline-block;font-size:.6rem;font-family:'IBM Plex Mono',monospace;padding:.1rem .38rem;border-radius:3px;font-weight:700;text-transform:uppercase}
+.pb-card .pb-score.critical{background:#7F1D1D;color:#fff}.pb-card .pb-score.high{background:var(--danger);color:#fff}
+.pb-card .pb-score.elevated{background:var(--warn);color:#fff}.pb-card .pb-score.moderate{background:#92400E;color:#fff}
+.pb-card .pb-score.low{background:var(--ok);color:#fff}
+footer{border-top:1px solid var(--border);padding:1.25rem 2rem;font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+footer strong{color:var(--ink)}
+.btn-locate{width:100%;margin-top:.5rem;padding:.65rem;background:#fff;color:var(--ink);border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.btn-locate:hover{border-color:var(--ink);background:var(--bg)}.btn-locate:disabled{color:var(--muted);cursor:not-allowed}
+.ac-section{font-size:.63rem;font-family:'IBM Plex Mono',monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;padding:.38rem 1rem .22rem;background:var(--bg)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Safe<em>Zone</em> / Intelligence</div>
+  <div class="nav-right">
+    <span class="pill-nav">South Africa · All 9 Provinces</span>
+    <span class="pill-nav" id="station-count">Loading…</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Property crime risk,<br>for any <em>South African</em> address.</h1>
+  <p>Enter any address to find the nearest SAPS police station and instantly view its real crime statistics — 2023/24 data, 1 167 stations nationwide.</p>
+  <div class="hero-badges">
+    <span class="badge">1 167 SAPS Stations</span>
+    <span class="badge">All 9 Provinces</span>
+    <span class="badge">Real 2023/24 Data</span>
+    <span class="badge">GPS-matched</span>
+  </div>
+</section>
+
+<div class="search-card" id="search-card">
+  <label class="search-label" for="addr-input">Enter any South African address or area</label>
+  <div class="input-wrap">
+    <span class="input-icon">📍</span>
+    <input id="addr-input" type="text"
+      placeholder="e.g. 41 5th Ave, Belgravia, Cape Town  or  Bryanston, Sandton"
+      autocomplete="off" spellcheck="false">
+    <div class="autocomplete" id="autocomplete"></div>
+  </div>
+  <button class="btn-search" id="btn-search" disabled>Find Station &amp; Generate Report</button>
+  <button class="btn-locate" id="btn-locate">📍 Use my location</button>
+  <div class="geocode-notice" id="geocode-notice">🌐 Geocoding via OpenStreetMap…</div>
+  <div class="chip-row">
+    <div class="chip-label">Quick searches —</div>
+    <button class="chip" data-q="Athlone, Cape Town">Athlone</button>
+    <button class="chip" data-q="Constantia, Cape Town">Constantia</button>
+    <button class="chip" data-q="Sandton, Johannesburg">Sandton</button>
+    <button class="chip" data-q="Khayelitsha, Cape Town">Khayelitsha</button>
+    <button class="chip" data-q="Rondebosch, Cape Town">Rondebosch</button>
+    <button class="chip" data-q="Soweto, Johannesburg">Soweto</button>
+    <button class="chip" data-q="Umhlanga, Durban">Umhlanga</button>
+    <button class="chip" data-q="Polokwane, Limpopo">Polokwane</button>
+  </div>
+</div>
+
+<div id="loading-state">
+  <div class="loading-steps">
+    <div class="step"><div class="step-dot" id="dot1"></div><span id="step1-txt">Geocoding address via OpenStreetMap…</span></div>
+    <div class="step"><div class="step-dot" id="dot2"></div><span>Finding nearest SAPS station by GPS…</span></div>
+    <div class="step"><div class="step-dot" id="dot3"></div><span>Loading real crime statistics…</span></div>
+    <div class="step"><div class="step-dot" id="dot4"></div><span>Preparing report…</span></div>
+  </div>
+</div>
+
+<div id="picker-state">
+  <div class="picker-header" id="picker-header">Select the closest station</div>
+  <div class="picker-grid" id="picker-grid"></div>
+</div>
+
+<div id="result-state">
+  <div class="result-addr">
+    <div>
+      <div class="addr-text" id="res-addr"></div>
+      <div class="addr-station" id="res-station"></div>
+      <div class="addr-meta" id="res-meta"></div>
+    </div>
+    <button class="reset-btn" onclick="resetSearch()">← New search</button>
+  </div>
+  <div class="risk-row">
+    <div class="risk-score-big" id="res-score"></div>
+    <div class="risk-detail">
+      <div class="risk-label-tag" id="res-label"></div>
+      <div class="risk-bar-wrap"><div class="risk-bar-track"><div class="risk-bar-fill" id="res-bar" style="width:0%"></div></div></div>
+      <div class="risk-desc" id="res-desc"></div>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat-cell"><div class="stat-val" id="s1"></div><div class="stat-lbl">Total Crimes Reported</div></div>
+    <div class="stat-cell"><div class="stat-val" id="s2"></div><div class="stat-lbl">Murder (2023/24)</div></div>
+    <div class="stat-cell"><div class="stat-val" id="s3"></div><div class="stat-lbl">Robbery (Aggravated)</div></div>
+    <div class="stat-cell"><div class="stat-val" id="s4"></div><div class="stat-lbl">Residential Burglary</div></div>
+  </div>
+  <div class="top-crimes">
+    <div class="top-crimes-title">Top crime categories — 2023/24 actual data</div>
+    <div id="crime-bars"></div>
+  </div>
+  <div class="dl-card">
+    <div class="dl-card-inner">
+      <div class="dl-thumb">📄</div>
+      <div class="dl-info">
+        <div class="dl-title">Full Station Crime Report (3 pages)</div>
+        <div class="dl-pills">
+          <span class="dl-pill">SAPS 2023/24</span>
+          <span class="dl-pill">12 crime categories</span>
+          <span class="dl-pill">5-year trend</span>
+          <span class="dl-pill">A4 · PDF-ready</span>
+        </div>
+        <div class="dl-actions">
+          <a id="res-report-btn" class="btn-dl" href="#" target="_blank">↗ Open Full Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-band">
+  <div class="stat-item"><div class="s-val">1 167</div><div class="s-lbl">SAPS Stations</div></div>
+  <div class="stat-item"><div class="s-val">9</div><div class="s-lbl">Provinces</div></div>
+  <div class="stat-item"><div class="s-val">2023/24</div><div class="s-lbl">SAPS Crime Data</div></div>
+  <div class="stat-item"><div class="s-val">GPS</div><div class="s-lbl">Nearest-station matching</div></div>
+</div>
+
+<div class="browse-section">
+  <h2>Browse all stations</h2>
+  <p class="sub">Filter by province, search by name, or click any card to generate a report.</p>
+  <input type="text" class="browse-search" id="browse-search" placeholder="Search station name…">
+  <div class="province-tabs" id="province-tabs"></div>
+  <div class="precinct-browse-grid" id="browse-grid"></div>
+</div>
+
+<footer>
+  <span><strong>SafeZone Intelligence</strong> — Source: SAPS Annual Crime Statistics 2023/24 · Informational use only</span>
+  <span>Geocoding: OpenStreetMap Nominatim · Static · No tracking</span>
+</footer>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+let STATIONS = [];
+let reportUrl = '';
+let browseProvince = null;
+let browseQuery = '';
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+const riskClass = s => s>=80?'critical':s>=65?'high':s>=50?'elevated':s>=35?'moderate':'low';
+const fmt = n => Number(n).toLocaleString('en-ZA');
+function yoyHtml(y){
+  if(!y&&y!==0)return'';
+  const p=Math.abs(Math.round(y*100));
+  if(y>0.03)return`<span class="yoy-badge up">▲${p}%</span>`;
+  if(y<-0.03)return`<span class="yoy-badge dn">▼${p}%</span>`;
+  return`<span class="yoy-badge flat">→${p}%</span>`;
+}
+
+// ── Haversine distance (km) ────────────────────────────────────────────────
+function haversine(lat1,lon1,lat2,lon2){
+  const R=6371,dLat=(lat2-lat1)*Math.PI/180,dLon=(lon2-lon1)*Math.PI/180;
+  const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
+function nearestStation(lat,lon,n=1){
+  const scored=STATIONS.map(s=>({s,d:haversine(lat,lon,s.lat,s.lon)}));
+  scored.sort((a,b)=>a.d-b.d);
+  return n===1?scored[0]:scored.slice(0,n);
+}
+
+// ── Load data ──────────────────────────────────────────────────────────────
+async function loadStations(){
+  try{
+    const r=await fetch('data/stations.json');
+    const d=await r.json();
+    STATIONS=Array.isArray(d)?d:d.stations;
+    document.getElementById('station-count').textContent=fmt(STATIONS.length)+' stations';
+    buildBrowse();
+  }catch(e){
+    document.getElementById('station-count').textContent='offline';
+    console.error('stations.json load failed:',e);
+  }
+}
+
+// ── Nominatim geocoding ────────────────────────────────────────────────────
+async function geocode(query){
+  const url=`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query+', South Africa')}&format=json&limit=1&countrycodes=za`;
+  try{
+    const r=await fetch(url,{headers:{'Accept-Language':'en','User-Agent':'SafeZone-Intelligence/1.0'}});
+    const d=await r.json();
+    if(d.length>0)return{lat:parseFloat(d[0].lat),lon:parseFloat(d[0].lon),display:d[0].display_name};
+  }catch(e){}
+  return null;
+}
+
+// ── Autocomplete (station name search) ─────────────────────────────────────
+function searchStations(q){
+  const lq=q.toLowerCase().trim();
+  if(lq.length<2)return[];
+  return STATIONS.filter(s=>
+    s.name.toLowerCase().includes(lq)||
+    s.name_upper.toLowerCase().includes(lq)||
+    s.district.toLowerCase().includes(lq)||
+    s.province.toLowerCase().includes(lq)
+  ).sort((a,b)=>{
+    const an=a.name.toLowerCase().startsWith(lq)?0:1;
+    const bn=b.name.toLowerCase().startsWith(lq)?0:1;
+    return an-bn||a.name.localeCompare(b.name);
+  }).slice(0,7);
+}
+
+const addrInput=document.getElementById('addr-input');
+const acDrop=document.getElementById('autocomplete');
+let acFocus=-1;
+
+addrInput.addEventListener('input',()=>{
+  document.getElementById('btn-search').disabled=addrInput.value.trim().length<3;
+  showAc(addrInput.value);
+});
+addrInput.addEventListener('keydown',e=>{
+  const items=acDrop.querySelectorAll('.ac-item');
+  if(e.key==='ArrowDown'){e.preventDefault();acFocus=Math.min(acFocus+1,items.length-1);hiAc(items)}
+  else if(e.key==='ArrowUp'){e.preventDefault();acFocus=Math.max(acFocus-1,-1);hiAc(items)}
+  else if(e.key==='Enter'){e.preventDefault();acFocus>=0&&items[acFocus]?items[acFocus].click():runSearch()}
+  else if(e.key==='Escape')closeAc();
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.input-wrap'))closeAc()});
+function hiAc(items){items.forEach((el,i)=>el.classList.toggle('focused',i===acFocus))}
+function closeAc(){acDrop.classList.remove('open');acFocus=-1}
+
+let _acAddrSeq=0;
+let _acAddrTimer=null;
+
+function showAc(q){
+  if(q.length<2){closeAc();return}
+  const stations=searchStations(q);
+  renderAcDropdown(stations,[]);
+  clearTimeout(_acAddrTimer);
+  if(q.length>=3){
+    _acAddrTimer=setTimeout(async()=>{
+      const seq=++_acAddrSeq;
+      const addrs=await nominatimSuggest(q);
+      if(seq!==_acAddrSeq)return;
+      renderAcDropdown(searchStations(addrInput.value),addrs);
+    },480);
+  }
+}
+
+async function nominatimSuggest(q){
+  try{
+    const url=`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+', South Africa')}&format=json&limit=4&countrycodes=za&addressdetails=0`;
+    const r=await fetch(url,{headers:{'Accept-Language':'en','User-Agent':'SafeZone-Intelligence/1.0'}});
+    return await r.json();
+  }catch(e){return[]}
+}
+
+function renderAcDropdown(stations,addrs){
+  if(!stations.length&&!addrs.length){closeAc();return}
+  let html='';
+  if(stations.length){
+    html+=`<div class="ac-section">Stations</div>`;
+    html+=stations.map(s=>`<div class="ac-item" data-id="${s.id}">
+      <div><div class="ac-name">${s.name} SAPS</div><div class="ac-sub">${s.district} · ${s.province}</div></div>
+      <div class="ac-risk ${riskClass(s.risk_score)}">${s.risk_label}</div>
+    </div>`).join('');
+  }
+  if(addrs.length){
+    html+=`<div class="ac-section">Addresses</div>`;
+    html+=addrs.map(a=>{
+      const parts=a.display_name.split(',');
+      const name=parts[0].trim();
+      const sub=parts.slice(1,3).map(p=>p.trim()).filter(Boolean).join(', ');
+      return`<div class="ac-item ac-addr" data-lat="${a.lat}" data-lon="${a.lon}" data-display="${a.display_name}">
+        <div><div class="ac-name">${name}</div><div class="ac-sub">${sub}</div></div>
+        <div style="font-size:.9rem">📍</div>
+      </div>`;
+    }).join('');
+  }
+  acDrop.innerHTML=html;
+  acDrop.querySelectorAll('.ac-item:not(.ac-addr)').forEach(el=>el.addEventListener('click',()=>{
+    const s=STATIONS.find(x=>x.id===el.dataset.id);
+    if(s){addrInput.value=s.name+' SAPS, '+s.province;closeAc();selectAndShow(s,addrInput.value,'station')}
+  }));
+  acDrop.querySelectorAll('.ac-item.ac-addr').forEach(el=>el.addEventListener('click',()=>{
+    const lat=parseFloat(el.dataset.lat),lon=parseFloat(el.dataset.lon);
+    const parts=el.dataset.display.split(',');
+    addrInput.value=parts.slice(0,2).map(p=>p.trim()).join(', ');
+    closeAc();
+    const nearest=nearestStation(lat,lon,5);
+    if(nearest[0].d<35){selectAndShow(nearest[0].s,addrInput.value,'geocode',nearest[0].d,el.dataset.display)}
+    else{showPicker(nearest.map(x=>({...x.s,_dist:x.d})),addrInput.value)}
+  }));
+  acDrop.classList.add('open');acFocus=-1;
+}
+
+document.getElementById('btn-search').addEventListener('click',runSearch);
+document.getElementById('btn-locate').addEventListener('click',useMyLocation);
+document.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=>{
+  addrInput.value=btn.dataset.q;
+  document.getElementById('btn-search').disabled=false;
+  runSearch();
+}));
+
+function runSearch(){
+  const q=addrInput.value.trim();
+  if(q.length<3)return;
+  closeAc();
+  doSearch(q);
+}
+
+// ── Main search flow ───────────────────────────────────────────────────────
+async function doSearch(query){
+  showLoading();
+  stepActive(1);
+
+  // Try Nominatim first
+  document.getElementById('geocode-notice').style.display='block';
+  const geo=await geocode(query);
+  document.getElementById('geocode-notice').style.display='none';
+  stepDone(1);
+  stepActive(2);
+
+  await delay(200);
+
+  if(geo){
+    // Found GPS coordinates — find nearest station
+    const nearest=nearestStation(geo.lat,geo.lon,5);
+    stepDone(2);stepActive(3);await delay(300);stepDone(3);stepActive(4);await delay(200);stepDone(4);
+
+    if(nearest[0].d < 35){
+      // Clear winner — nearest within 35 km
+      selectAndShow(nearest[0].s, query, 'geocode', nearest[0].d, geo.display);
+    } else {
+      // Very remote — show top 5 closest
+      showPicker(nearest.map(x=>({...x.s,_dist:x.d})), query);
+    }
+  } else {
+    // Geocoding failed — fall back to name search
+    stepDone(2);stepActive(3);await delay(300);stepDone(3);stepActive(4);await delay(200);stepDone(4);
+    const nameMatches=searchStations(query);
+    if(nameMatches.length===1){
+      selectAndShow(nameMatches[0], query, 'name');
+    } else if(nameMatches.length>1){
+      showPicker(nameMatches.slice(0,6), query);
+    } else {
+      // No match — show all, sorted by risk desc
+      const top=[...STATIONS].sort((a,b)=>b.risk_score-a.risk_score).slice(0,12);
+      showPicker(top, query, true);
+    }
+  }
+}
+
+const delay=ms=>new Promise(r=>setTimeout(r,ms));
+function stepActive(n){document.getElementById('dot'+n).classList.add('active')}
+function stepDone(n){const d=document.getElementById('dot'+n);d.classList.remove('active');d.classList.add('done')}
+
+function showLoading(){
+  ['search-card','result-state','picker-state'].forEach(id=>document.getElementById(id).style.display='none');
+  document.getElementById('loading-state').style.display='block';
+  for(let i=1;i<=4;i++){const d=document.getElementById('dot'+i);d.className='step-dot'}
+}
+
+function showPicker(stations,query,noMatch=false){
+  document.getElementById('loading-state').style.display='none';
+  document.getElementById('picker-state').style.display='block';
+  document.getElementById('picker-header').innerHTML=noMatch
+    ?`No match found for "<strong>${query}</strong>" — select the nearest station manually:`
+    :`Multiple stations matched — select the most relevant:`;
+  const grid=document.getElementById('picker-grid');
+  grid.innerHTML=stations.map(s=>`<button class="picker-card" data-id="${s.id}">
+    <div class="pc-name">${s.name}</div>
+    <div class="pc-prov">${s.district} · ${s.province}${s._dist?` · ${s._dist.toFixed(1)} km`:''}</div>
+    <span class="pc-risk ${riskClass(s.risk_score)}">${s.risk_label}</span>
+  </button>`).join('');
+  grid.querySelectorAll('.picker-card').forEach(btn=>btn.addEventListener('click',()=>{
+    const s=STATIONS.find(x=>x.id===btn.dataset.id);
+    if(s)selectAndShow(s,query,'picker');
+  }));
+}
+
+function selectAndShow(station, address, method='name', distKm=null, geoDisplay=null){
+  ['loading-state','picker-state','search-card'].forEach(id=>document.getElementById(id).style.display='none');
+  const rc=riskClass(station.risk_score);
+
+  document.getElementById('res-addr').textContent=address;
+  document.getElementById('res-station').textContent='📍 '+station.name+' SAPS — '+station.district;
+  let meta='Data: SAPS 2023/24 · '+station.province;
+  if(distKm!=null)meta+=` · ${distKm.toFixed(1)} km from search point`;
+  if(method==='geocode')meta+=' · GPS matched';
+  document.getElementById('res-meta').textContent=meta;
+
+  const scoreEl=document.getElementById('res-score');scoreEl.textContent=station.risk_score;scoreEl.className='risk-score-big '+rc;
+  const labelEl=document.getElementById('res-label');labelEl.textContent=station.risk_label;labelEl.className='risk-label-tag '+rc;
+  const bar=document.getElementById('res-bar');bar.style.width='0%';
+  setTimeout(()=>{bar.style.width=station.risk_score+'%';bar.className='risk-bar-fill '+(station.risk_score>=65?'':station.risk_score>=50?'warn':'ok')},50);
+
+  document.getElementById('res-desc').textContent=`${station.name} SAPS reported ${fmt(station.total_incidents)} serious crimes in 2023/24. Risk score is at the ${station.risk_score}th percentile of all South African stations.`;
+
+  // KPI row
+  const murder=station.categories.find(c=>c.name==='Murder')?.count||0;
+  const robbery=station.categories.find(c=>c.name==='Robbery With Aggravating Circumstances')?.count||0;
+  const burg=station.categories.find(c=>c.name==='Burglary at Residential Premises')?.count||0;
+  document.getElementById('s1').textContent=fmt(station.total_incidents);
+  document.getElementById('s2').textContent=fmt(murder);
+  document.getElementById('s3').textContent=fmt(robbery);
+  document.getElementById('s4').textContent=fmt(burg);
+
+  // Crime bars — top 6 by count
+  const sorted=[...station.categories].sort((a,b)=>b.count-a.count);
+  const maxCount=sorted[0].count||1;
+  const DANGER_CATS=new Set(['Murder','Rape','Robbery With Aggravating Circumstances','Carjacking','Attempted Murder']);
+  const WARN_CATS=new Set(['Burglary at Residential Premises','Burglary at Non-Residential Premises','Theft of Motor Vehicle and Motorcycle','Assault GBH']);
+  document.getElementById('crime-bars').innerHTML=sorted.slice(0,6).map(c=>{
+    const pct=Math.round(c.count/maxCount*100);
+    const cls=DANGER_CATS.has(c.name)?'danger':WARN_CATS.has(c.name)?'warn':'';
+    return`<div class="crime-bar-row">
+      <div class="crime-bar-name">${c.name}</div>
+      <div class="crime-bar-track"><div class="crime-bar-fill ${cls}" style="width:${pct}%"></div></div>
+      <div class="crime-bar-count">${fmt(c.count)}</div>
+      ${yoyHtml(c.yoy)}
+    </div>`;
+  }).join('');
+
+  reportUrl=`report.html?id=${station.id}&address=${encodeURIComponent(address)}`;
+  document.getElementById('res-report-btn').href=reportUrl;
+  document.getElementById('result-state').style.display='block';
+  document.getElementById('result-state').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function resetSearch(){
+  addrInput.value='';
+  document.getElementById('btn-search').disabled=true;
+  reportUrl='';
+  ['result-state','picker-state','loading-state'].forEach(id=>document.getElementById(id).style.display='none');
+  document.getElementById('search-card').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── Browse section ─────────────────────────────────────────────────────────
+function buildBrowse(){
+  const provs=[...new Set(STATIONS.map(s=>s.province))].sort();
+  const tabs=document.getElementById('province-tabs');
+  const all=document.createElement('button');all.className='prov-tab active';all.textContent='All';
+  all.onclick=()=>{browseProvince=null;all.parentElement.querySelectorAll('.prov-tab').forEach(b=>b.classList.remove('active'));all.classList.add('active');renderBrowse()};
+  tabs.appendChild(all);
+  provs.forEach(prov=>{
+    const btn=document.createElement('button');btn.className='prov-tab';btn.textContent=prov;
+    btn.onclick=()=>{browseProvince=prov;tabs.querySelectorAll('.prov-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderBrowse()};
+    tabs.appendChild(btn);
+  });
+  renderBrowse();
+
+  document.getElementById('browse-search').addEventListener('input',e=>{
+    browseQuery=e.target.value.toLowerCase();renderBrowse();
+  });
+}
+
+function renderBrowse(){
+  let list=browseProvince?STATIONS.filter(s=>s.province===browseProvince):STATIONS;
+  if(browseQuery)list=list.filter(s=>s.name.toLowerCase().includes(browseQuery)||s.district.toLowerCase().includes(browseQuery));
+  // Sort: name alpha within province
+  list=[...list].sort((a,b)=>a.name.localeCompare(b.name));
+  const grid=document.getElementById('browse-grid');
+  grid.innerHTML=list.slice(0,200).map(s=>`<button class="pb-card" data-id="${s.id}">
+    <div class="pb-name">${s.name}</div>
+    <div class="pb-prov">${s.district} · ${s.province}</div>
+    <span class="pb-score ${riskClass(s.risk_score)}">${s.risk_score} — ${s.risk_label}</span>
+  </button>`).join('')+(list.length>200?`<div style="grid-column:1/-1;font-size:.75rem;color:var(--muted);padding:.5rem">Showing 200 of ${list.length} — use search to filter</div>`:'');
+  grid.querySelectorAll('.pb-card').forEach(btn=>btn.addEventListener('click',()=>{
+    const s=STATIONS.find(x=>x.id===btn.dataset.id);
+    if(s){addrInput.value=s.name+' SAPS, '+s.province;document.getElementById('btn-search').disabled=false;selectAndShow(s,s.name+' SAPS, '+s.province,'browse');window.scrollTo({top:0,behavior:'smooth'})}
+  }));
+}
+
+// ── Use my location ────────────────────────────────────────────────────────────────────────────
+function useMyLocation(){
+  const btn=document.getElementById('btn-locate');
+  if(!navigator.geolocation){
+    alert('Your browser does not support location access.');
+    return;
+  }
+  btn.disabled=true;
+  btn.textContent='⏳ Getting location…';
+  navigator.geolocation.getCurrentPosition(
+    pos=>{
+      btn.disabled=false;
+      btn.innerHTML='📍 Use my location';
+      const{latitude:lat,longitude:lon}=pos.coords;
+      closeAc();
+      showLoading();
+      stepActive(1);stepDone(1);
+      stepActive(2);
+      const nearest=nearestStation(lat,lon,5);
+      stepDone(2);stepActive(3);
+      setTimeout(()=>{
+        stepDone(3);stepActive(4);
+        setTimeout(()=>{
+          stepDone(4);
+          if(nearest[0].d<35){
+            selectAndShow(nearest[0].s,'Your current location','geocode',nearest[0].d);
+          }else{
+            showPicker(nearest.map(x=>({...x.s,_dist:x.d})),'Your current location');
+          }
+        },200);
+      },300);
+    },
+    err=>{
+      btn.disabled=false;
+      btn.innerHTML='📍 Use my location';
+      if(err.code===1){
+        alert('Location access was denied. Please allow location in your browser settings and try again.');
+      }else{
+        alert('Could not get your location. Please try searching by address instead.');
+      }
+    },
+    {timeout:10000,maximumAge:60000}
+  );
+}
+
+loadStations();
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SafeZone Intelligence â Property Crime Risk, South Africa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

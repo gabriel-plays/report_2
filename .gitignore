@@ -1,0 +1,18 @@
+# Raw source data — too large for GitHub, not needed for the web app
+source/
+
+# Data pipeline outputs
+pipeline/
+
+# Local build & utility scripts
+scripts/
+
+# Sample report outputs
+samples/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp

@@ -15,12 +15,25 @@ Deploy to GitHub Pages — 100% static, no server required.
 ## Project structure
 
 ```
-index.html              ← Search UI & station finder
-report.html             ← Station crime intelligence report
+index.html                    ← Search UI & station finder
+report.html                   ← Station crime intelligence report
 data/
-  stations.json         ← All station data (pre-computed, ~1.2 MB)
-  precincts.json        ← Station boundary polygons
-.nojekyll               ← Prevents GitHub Pages Jekyll processing
+  stations.json               ← All station data (pre-computed, ~3 MB)
+  precincts.json              ← Station boundary polygons
+docs/
+  SAPS_Crime_Stats_...md      ← Source download URLs reference
+.nojekyll                     ← Prevents GitHub Pages Jekyll processing
+
+# Local only (gitignored)
+source/
+  crime_stats/                ← Raw SAPS .xlsx downloads
+  shapefiles/                 ← Station boundary & point shapefiles
+pipeline/
+  clean/                      ← Normalised CSVs, SQLite DB, audit reports
+  enriched/                   ← GIS-enriched shapefiles & GeoJSONs
+scripts/
+  gen_pdf.py                  ← Renders station report HTML → PDF (Playwright)
+samples/                      ← Example generated reports (HTML + PDF)
 ```
 
 ## Deploy to GitHub Pages
@@ -34,7 +47,7 @@ data/
 
 All statistics are sourced from official SAPS Annual Crime Statistics releases (2020/21 – 2024/25) and quarterly reports, processed through a normalisation pipeline. Coverage: 1,196 stations, 44 crime categories, fiscal years 2008/09 to 2024/25.
 
-The `data/stations.json` file is pre-built from the SQLite database (`clean_data/saps_crimes.db`, not included in this repo). To rebuild it, run `build_report_data.py` locally with the database in place.
+The `data/stations.json` file is pre-built from the SQLite database (`pipeline/clean/saps_crimes.db`). To rebuild it, run `build_report_data.py` locally with the database in place.
 
 ## Tech stack
 

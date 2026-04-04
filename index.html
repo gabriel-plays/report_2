@@ -7,6 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@3/dist/pmtiles.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#111827;--muted:#6B7280;--border:#E5E7EB;--bg:#F9FAFB;--danger:#DC2626;--warn:#D97706;--ok:#059669}
@@ -108,23 +111,31 @@ nav{display:flex;align-items:center;padding:0 2rem;height:60px;border-bottom:1px
 .stats-band{border-top:1px solid var(--border);padding:3rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;text-align:center}
 .stat-item .s-val{font-family:'Libre Baskerville',serif;font-size:2rem;font-weight:700}
 .stat-item .s-lbl{font-size:.75rem;color:var(--muted);margin-top:.2rem}
-/* browse section */
-.browse-section{max-width:900px;margin:0 auto;padding:0 2rem 4rem}
-.browse-section h2{font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;margin-bottom:.35rem}
-.browse-section .sub{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
-.province-tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1rem}
-.prov-tab{font-size:.75rem;border:1px solid var(--border);border-radius:100px;padding:.3rem .8rem;cursor:pointer;background:#fff;font-family:inherit;color:var(--muted);transition:all .15s}
-.prov-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.browse-search{width:100%;max-width:360px;padding:.5rem .85rem;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.82rem;outline:none;margin-bottom:1rem}
-.browse-search:focus{border-color:var(--ink)}
-.precinct-browse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.5rem}
-.pb-card{border:1px solid var(--border);border-radius:8px;padding:.7rem;cursor:pointer;transition:border-color .15s;background:#fff;text-align:left;font-family:inherit;width:100%}
-.pb-card:hover{border-color:var(--ink)}
-.pb-card .pb-name{font-weight:600;font-size:.78rem}.pb-card .pb-prov{font-size:.65rem;color:var(--muted);margin:.08rem 0 .25rem}
-.pb-card .pb-score{display:inline-block;font-size:.6rem;font-family:'IBM Plex Mono',monospace;padding:.1rem .38rem;border-radius:3px;font-weight:700;text-transform:uppercase}
-.pb-card .pb-score.critical{background:#7F1D1D;color:#fff}.pb-card .pb-score.high{background:var(--danger);color:#fff}
-.pb-card .pb-score.elevated{background:var(--warn);color:#fff}.pb-card .pb-score.moderate{background:#92400E;color:#fff}
-.pb-card .pb-score.low{background:var(--ok);color:#fff}
+/* map section */
+.map-section{padding:0 0 4rem}
+.map-section-header{max-width:900px;margin:0 auto;padding:0 2rem 1rem}
+.map-section-header h2{font-family:'Libre Baskerville',serif;font-size:1.4rem;font-weight:700;margin-bottom:.35rem}
+.map-section-header .sub{font-size:.82rem;color:var(--muted)}
+.map-legend{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.75rem}
+.legend-item{display:flex;align-items:center;gap:.35rem;font-size:.7rem;font-family:'IBM Plex Mono',monospace;color:var(--muted)}
+.legend-swatch{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+#station-map{width:100%;height:540px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.maplibregl-popup-content{font-family:'Inter',sans-serif;font-size:.82rem;padding:0;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.12);max-width:220px}
+.map-popup-head{padding:.6rem .85rem .5rem;border-bottom:1px solid var(--border)}
+.map-popup-name{font-weight:700;font-size:.88rem;line-height:1.2}
+.map-popup-sub{font-size:.68rem;color:var(--muted);margin-top:.15rem}
+.map-popup-risk{display:inline-block;font-size:.62rem;font-family:'IBM Plex Mono',monospace;font-weight:700;text-transform:uppercase;padding:.15rem .45rem;border-radius:3px;margin-top:.35rem}
+.map-popup-risk.critical{background:#7F1D1D;color:#fff}.map-popup-risk.high{background:var(--danger);color:#fff}
+.map-popup-risk.elevated{background:var(--warn);color:#fff}.map-popup-risk.moderate{background:#92400E;color:#fff}
+.map-popup-risk.low{background:var(--ok);color:#fff}
+.map-popup-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.map-popup-stat{background:#fff;padding:.45rem .6rem}
+.map-popup-stat .v{font-weight:700;font-size:.88rem;line-height:1}
+.map-popup-stat .l{font-size:.62rem;color:var(--muted);margin-top:.1rem}
+.map-popup-actions{padding:.55rem .85rem;display:flex;gap:.5rem}
+.map-popup-btn{flex:1;padding:.4rem .6rem;border-radius:5px;font-size:.72rem;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;text-align:center;text-decoration:none;border:none}
+.map-popup-btn.primary{background:var(--ink);color:#fff}
+.map-popup-btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--border)}
 footer{border-top:1px solid var(--border);padding:1.25rem 2rem;font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 footer strong{color:var(--ink)}
 .btn-locate{width:100%;margin-top:.5rem;padding:.65rem;background:#fff;color:var(--ink);border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:.4rem}
@@ -245,12 +256,19 @@ footer strong{color:var(--ink)}
   <div class="stat-item"><div class="s-val">GPS</div><div class="s-lbl">Nearest-station matching</div></div>
 </div>
 
-<div class="browse-section">
-  <h2>Browse all stations</h2>
-  <p class="sub">Filter by province, search by name, or click any card to generate a report.</p>
-  <input type="text" class="browse-search" id="browse-search" placeholder="Search station name…">
-  <div class="province-tabs" id="province-tabs"></div>
-  <div class="precinct-browse-grid" id="browse-grid"></div>
+<div class="map-section">
+  <div class="map-section-header">
+    <h2>Browse all stations</h2>
+    <p class="sub">Click any precinct to view its crime profile. Coloured by risk score.</p>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-swatch" style="background:#059669"></div>Low</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#92400E"></div>Moderate</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#D97706"></div>Elevated</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#DC2626"></div>High</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#7F1D1D"></div>Critical</div>
+    </div>
+  </div>
+  <div id="station-map"></div>
 </div>
 
 <footer>
@@ -262,8 +280,6 @@ footer strong{color:var(--ink)}
 // ── State ──────────────────────────────────────────────────────────────────
 let STATIONS = [];
 let reportUrl = '';
-let browseProvince = null;
-let browseQuery = '';
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 const riskClass = s => s>=80?'critical':s>=65?'high':s>=50?'elevated':s>=35?'moderate':'low';
@@ -290,13 +306,16 @@ function nearestStation(lat,lon,n=1){
 }
 
 // ── Load data ──────────────────────────────────────────────────────────────
+let STATION_INDEX = {};
+
 async function loadStations(){
   try{
     const r=await fetch('data/stations.json');
     const d=await r.json();
     STATIONS=Array.isArray(d)?d:d.stations;
+    STATION_INDEX=Object.fromEntries(STATIONS.map(s=>[s.id,s]));
     document.getElementById('station-count').textContent=fmt(STATIONS.length)+' stations';
-    buildBrowse();
+    initMap();
   }catch(e){
     document.getElementById('station-count').textContent='offline';
     console.error('stations.json load failed:',e);
@@ -546,6 +565,11 @@ function selectAndShow(station, address, method='name', distKm=null, geoDisplay=
   document.getElementById('res-report-btn').href=reportUrl;
   document.getElementById('result-state').style.display='block';
   document.getElementById('result-state').scrollIntoView({behavior:'smooth',block:'nearest'});
+
+  // Fly map to station
+  if(MAP && station.lat && station.lon){
+    MAP.flyTo({center:[station.lon, station.lat], zoom:Math.max(MAP.getZoom(),9), duration:1200});
+  }
 }
 
 function resetSearch(){
@@ -557,40 +581,125 @@ function resetSearch(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ── Browse section ─────────────────────────────────────────────────────────
-function buildBrowse(){
-  const provs=[...new Set(STATIONS.map(s=>s.province))].sort();
-  const tabs=document.getElementById('province-tabs');
-  const all=document.createElement('button');all.className='prov-tab active';all.textContent='All';
-  all.onclick=()=>{browseProvince=null;all.parentElement.querySelectorAll('.prov-tab').forEach(b=>b.classList.remove('active'));all.classList.add('active');renderBrowse()};
-  tabs.appendChild(all);
-  provs.forEach(prov=>{
-    const btn=document.createElement('button');btn.className='prov-tab';btn.textContent=prov;
-    btn.onclick=()=>{browseProvince=prov;tabs.querySelectorAll('.prov-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderBrowse()};
-    tabs.appendChild(btn);
-  });
-  renderBrowse();
+// ── Map ────────────────────────────────────────────────────────────────────
+let MAP = null;
 
-  document.getElementById('browse-search').addEventListener('input',e=>{
-    browseQuery=e.target.value.toLowerCase();renderBrowse();
+function initMap(){
+  // Register pmtiles:// protocol
+  const protocol = new pmtiles.Protocol();
+  maplibregl.addProtocol('pmtiles', protocol.tile.bind(protocol));
+
+  MAP = new maplibregl.Map({
+    container: 'station-map',
+    style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+    center: [25.0, -29.0],
+    zoom: 5,
+    minZoom: 4,
+    maxZoom: 12,
+  });
+
+  MAP.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+
+  MAP.on('load', () => {
+    MAP.addSource('saps', {
+      type: 'vector',
+      url: 'pmtiles://data/saps_stations.pmtiles',
+    });
+
+    // Fill — coloured by risk_score
+    MAP.addLayer({
+      id: 'precincts-fill',
+      type: 'fill',
+      source: 'saps',
+      'source-layer': 'saps_precincts',
+      paint: {
+        'fill-color': [
+          'step', ['get', 'risk_score'],
+          '#059669',      // low  (< 35)
+          35, '#92400E',  // moderate
+          50, '#D97706',  // elevated
+          65, '#DC2626',  // high
+          80, '#7F1D1D',  // critical
+        ],
+        'fill-opacity': ['interpolate',['linear'],['zoom'], 4,0.65, 10,0.45],
+      },
+    });
+
+    // Outline
+    MAP.addLayer({
+      id: 'precincts-line',
+      type: 'line',
+      source: 'saps',
+      'source-layer': 'saps_precincts',
+      paint: {
+        'line-color': '#fff',
+        'line-width': ['interpolate',['linear'],['zoom'], 5,0.3, 9,0.8, 12,1.2],
+        'line-opacity': 0.6,
+      },
+    });
+
+    // Hover highlight
+    MAP.addLayer({
+      id: 'precincts-hover',
+      type: 'fill',
+      source: 'saps',
+      'source-layer': 'saps_precincts',
+      paint: {'fill-color':'#fff','fill-opacity':0.2},
+      filter: ['==','id',''],
+    });
+
+    // Cursor + hover
+    MAP.on('mousemove','precincts-fill', e=>{
+      MAP.getCanvas().style.cursor='pointer';
+      const id = e.features[0]?.properties?.id || '';
+      MAP.setFilter('precincts-hover',['==','id',id]);
+    });
+    MAP.on('mouseleave','precincts-fill',()=>{
+      MAP.getCanvas().style.cursor='';
+      MAP.setFilter('precincts-hover',['==','id','']);
+    });
+
+    // Click → popup
+    MAP.on('click','precincts-fill', e=>{
+      const id = e.features[0]?.properties?.id;
+      if(!id) return;
+      const s = STATION_INDEX[id];
+      if(!s) return;
+
+      const rc = riskClass(s.risk_score);
+      const murder = s.categories?.find(c=>c.name==='Murder')?.count ?? '—';
+      const burg   = s.categories?.find(c=>c.name==='Burglary at Residential Premises')?.count ?? '—';
+
+      new maplibregl.Popup({closeButton:true, maxWidth:'220px'})
+        .setLngLat(e.lngLat)
+        .setHTML(`
+          <div class="map-popup-head">
+            <div class="map-popup-name">${s.name} SAPS</div>
+            <div class="map-popup-sub">${s.district} · ${s.province}</div>
+            <span class="map-popup-risk ${rc}">${s.risk_label} · ${s.risk_score}/100</span>
+          </div>
+          <div class="map-popup-stats">
+            <div class="map-popup-stat"><div class="v">${fmt(s.total)}</div><div class="l">Total crimes</div></div>
+            <div class="map-popup-stat"><div class="v">#${s.nat_rank}</div><div class="l">National rank</div></div>
+            <div class="map-popup-stat"><div class="v">${fmt(murder)}</div><div class="l">Murder</div></div>
+            <div class="map-popup-stat"><div class="v">${fmt(burg)}</div><div class="l">Res. burglary</div></div>
+          </div>
+          <div class="map-popup-actions">
+            <a class="map-popup-btn primary" href="report.html?id=${s.id}" target="_blank">Full report ↗</a>
+            <button class="map-popup-btn secondary" onclick="mapSelectStation('${s.id}')">Search view</button>
+          </div>`)
+        .addTo(MAP);
+    });
   });
 }
 
-function renderBrowse(){
-  let list=browseProvince?STATIONS.filter(s=>s.province===browseProvince):STATIONS;
-  if(browseQuery)list=list.filter(s=>s.name.toLowerCase().includes(browseQuery)||s.district.toLowerCase().includes(browseQuery));
-  // Sort: name alpha within province
-  list=[...list].sort((a,b)=>a.name.localeCompare(b.name));
-  const grid=document.getElementById('browse-grid');
-  grid.innerHTML=list.slice(0,200).map(s=>`<button class="pb-card" data-id="${s.id}">
-    <div class="pb-name">${s.name}</div>
-    <div class="pb-prov">${s.district} · ${s.province}</div>
-    <span class="pb-score ${riskClass(s.risk_score)}">${s.risk_score} — ${s.risk_label}</span>
-  </button>`).join('')+(list.length>200?`<div style="grid-column:1/-1;font-size:.75rem;color:var(--muted);padding:.5rem">Showing 200 of ${list.length} — use search to filter</div>`:'');
-  grid.querySelectorAll('.pb-card').forEach(btn=>btn.addEventListener('click',()=>{
-    const s=STATIONS.find(x=>x.id===btn.dataset.id);
-    if(s){addrInput.value=s.name+' SAPS, '+s.province;document.getElementById('btn-search').disabled=false;selectAndShow(s,s.name+' SAPS, '+s.province,'browse');window.scrollTo({top:0,behavior:'smooth'})}
-  }));
+function mapSelectStation(id){
+  const s = STATION_INDEX[id];
+  if(!s) return;
+  addrInput.value = s.name+' SAPS, '+s.province;
+  document.getElementById('btn-search').disabled = false;
+  selectAndShow(s, s.name+' SAPS, '+s.province, 'browse');
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
 // ── Use my location ────────────────────────────────────────────────────────
